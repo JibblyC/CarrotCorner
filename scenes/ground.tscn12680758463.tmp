@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3bgdxesfokge"]
+
+[ext_resource type="Texture2D" uid="uid://bigynpm1ecabn" path="res://assets/GroundSprite.png" id="1_pybca"]
+
+[sub_resource type="GDScript" id="GDScript_mi8v4"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+"
+
+[node name="Ground" type="Node2D"]
+script = SubResource("GDScript_mi8v4")
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_pybca")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

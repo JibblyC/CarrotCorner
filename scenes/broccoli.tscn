@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://67lmvxn7btm6"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_6p1ki"]
+[ext_resource type="Texture2D" uid="uid://do7mrd3b5hq2j" path="res://assets/vegetables/broccoli/BrocSeeds.png" id="2_wwqmx"]
+[ext_resource type="Texture2D" uid="uid://dywh36dkhgopp" path="res://assets/vegetables/broccoli/BrocHalf.png" id="3_yu818"]
+[ext_resource type="Texture2D" uid="uid://bt4cre11hfw4s" path="res://assets/vegetables/broccoli/BrocFull.png" id="4_ooftf"]
+[ext_resource type="Texture2D" uid="uid://cbkdocbbveo0t" path="res://assets/vegetables/broccoli/Broc.png" id="5_g2muy"]
+
+[node name="broccoli" instance=ExtResource("1_6p1ki")]
+seedGrowTime = 4
+saplingGrowTime = 4
+seedTexture = ExtResource("2_wwqmx")
+halfGrowTexture = ExtResource("3_yu818")
+fullGrowTexture = ExtResource("4_ooftf")
+goldValue = 10
+goldCost = 6
+
+[node name="HarvestSprite" parent="." index="3"]
+texture = ExtResource("5_g2muy")

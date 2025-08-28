@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2qn7tctvftov"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_2inn6"]
+[ext_resource type="Texture2D" uid="uid://cbrquemxh0wh8" path="res://assets/vegetables/pumpkin/pumkinSeeds.png" id="2_kanjq"]
+[ext_resource type="Texture2D" uid="uid://cptsg8sv11ur5" path="res://assets/vegetables/pumpkin/pumpkinMid.png" id="3_4siox"]
+[ext_resource type="Texture2D" uid="uid://bwoyrd4w3ib35" path="res://assets/vegetables/pumpkin/pumpkinFull.png" id="4_wx4lb"]
+[ext_resource type="Texture2D" uid="uid://bff20cp0rjuop" path="res://assets/vegetables/pumpkin/pumpkin.png" id="5_kanjq"]
+
+[node name="pumpkin" instance=ExtResource("1_2inn6")]
+seedGrowTime = 3
+saplingGrowTime = 3
+seedTexture = ExtResource("2_kanjq")
+halfGrowTexture = ExtResource("3_4siox")
+fullGrowTexture = ExtResource("4_wx4lb")
+goldValue = 6
+goldCost = 4
+
+[node name="HarvestSprite" parent="." index="3"]
+texture = ExtResource("5_kanjq")

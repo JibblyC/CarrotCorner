@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjyuqgofoyosr"]
+
+[ext_resource type="Script" uid="uid://pwebceff1url" path="res://scripts/seed_selection_menu.gd" id="1_qqcfp"]
+[ext_resource type="Texture2D" uid="uid://cfsmuh5533gjm" path="res://assets/vegetables/carrot/carrotSeedPack.png" id="2_qqcfp"]
+[ext_resource type="Texture2D" uid="uid://bip8obser6xfb" path="res://assets/vegetables/potatoe/potatoeSeedPack.png" id="3_3iqaj"]
+[ext_resource type="Texture2D" uid="uid://c0sst5lvdd6yu" path="res://assets/vegetables/pumpkin/pumpkinSeedPack.png" id="4_3iqaj"]
+[ext_resource type="Texture2D" uid="uid://d2wcmltbv5e6m" path="res://assets/vegetables/tomatoe/tomatoeSeedPack.png" id="5_8fcxm"]
+
+[node name="SeedSelectionMenu" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.5
+offset_top = -21.0
+offset_right = 20.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_qqcfp")
+
+[node name="CarrotButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("2_qqcfp")
+stretch_mode = 5
+
+[node name="PotatoeButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("3_3iqaj")
+stretch_mode = 5
+
+[node name="PumpkinButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("4_3iqaj")
+stretch_mode = 5
+
+[node name="TomatoeButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("5_8fcxm")
+stretch_mode = 5
+
+[connection signal="pressed" from="CarrotButton" to="." method="_on_carrot_button_pressed"]
+[connection signal="pressed" from="PotatoeButton" to="." method="_on_potatoe_button_pressed"]
+[connection signal="pressed" from="PumpkinButton" to="." method="_on_pumpkin_button_pressed"]
+[connection signal="pressed" from="TomatoeButton" to="." method="_on_tomatoe_button_pressed"]

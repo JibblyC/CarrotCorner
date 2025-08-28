@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy7xuksf1ceub"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_8indm"]
+[ext_resource type="Texture2D" uid="uid://sirb7v83yxo3" path="res://assets/vegetables/tomatoe/tomatoeSeeds.png" id="2_5xlci"]
+[ext_resource type="Texture2D" uid="uid://dkbkqwg6v46cv" path="res://assets/vegetables/tomatoe/tomatoeMid.png" id="3_nsq78"]
+[ext_resource type="Texture2D" uid="uid://capc3gtd45sb3" path="res://assets/vegetables/tomatoe/tomatoeFull.png" id="4_s3f74"]
+[ext_resource type="Texture2D" uid="uid://d4ibbbiv8yeek" path="res://assets/vegetables/tomatoe/tomatoe.png" id="5_5xlci"]
+
+[node name="tomatoe" instance=ExtResource("1_8indm")]
+seedGrowTime = 4
+saplingGrowTime = 4
+seedTexture = ExtResource("2_5xlci")
+halfGrowTexture = ExtResource("3_nsq78")
+fullGrowTexture = ExtResource("4_s3f74")
+goldValue = 8
+goldCost = 5
+
+[node name="HarvestSprite" parent="." index="3"]
+texture = ExtResource("5_5xlci")

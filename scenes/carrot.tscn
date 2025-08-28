@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://curjiuni6ybas"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_x0dx6"]
+[ext_resource type="Texture2D" uid="uid://b2k0f24grvdlm" path="res://assets/vegetables/carrot/CarrotSeeds.png" id="2_x0dx6"]
+[ext_resource type="Texture2D" uid="uid://clp7l26p5jedq" path="res://assets/vegetables/carrot/CarrotMid.png" id="3_o2vgq"]
+[ext_resource type="Texture2D" uid="uid://bgq0i3ma7wjvd" path="res://assets/vegetables/carrot/CarrotFull.png" id="4_wql3v"]
+[ext_resource type="Texture2D" uid="uid://dpgerx1ufpxh7" path="res://assets/vegetables/carrot/carrot.png" id="5_o2vgq"]
+
+[node name="carrot" instance=ExtResource("1_x0dx6")]
+seedGrowTime = 1
+saplingGrowTime = 1
+seedTexture = ExtResource("2_x0dx6")
+halfGrowTexture = ExtResource("3_o2vgq")
+fullGrowTexture = ExtResource("4_wql3v")
+goldValue = 2
+goldCost = 1
+
+[node name="HarvestSprite" parent="." index="3"]
+texture = ExtResource("5_o2vgq")

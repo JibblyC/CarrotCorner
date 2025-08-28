@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv6ofujb1f7om"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_fk81d"]
+[ext_resource type="Texture2D" uid="uid://dfw6o0h5fnn8p" path="res://assets/vegetables/potatoe/potatoeSeeds.png" id="2_u7xut"]
+[ext_resource type="Texture2D" uid="uid://cq0wa7pfivwo" path="res://assets/vegetables/potatoe/potatoeMid.png" id="3_jf6kr"]
+[ext_resource type="Texture2D" uid="uid://dg8i0u5e01bxe" path="res://assets/vegetables/potatoe/potatoeFull.png" id="4_qqhea"]
+[ext_resource type="Texture2D" uid="uid://47civb05tacu" path="res://assets/vegetables/potatoe/potatoe.png" id="5_jf6kr"]
+
+[node name="potatoe" instance=ExtResource("1_fk81d")]
+seedGrowTime = 2
+saplingGrowTime = 2
+seedTexture = ExtResource("2_u7xut")
+halfGrowTexture = ExtResource("3_jf6kr")
+fullGrowTexture = ExtResource("4_qqhea")
+goldValue = 4
+goldCost = 2
+
+[node name="HarvestSprite" parent="." index="3"]
+texture = ExtResource("5_jf6kr")

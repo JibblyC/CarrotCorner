@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjyuqgofoyosr"]
+
+[ext_resource type="Script" uid="uid://pwebceff1url" path="res://scripts/seed_selection_menu.gd" id="1_qqcfp"]
+[ext_resource type="Texture2D" uid="uid://dpgerx1ufpxh7" path="res://assets/vegetables/carrot/carrot.png" id="2_8fcxm"]
+[ext_resource type="Texture2D" uid="uid://47civb05tacu" path="res://assets/vegetables/potatoe/potatoe.png" id="3_8fcxm"]
+[ext_resource type="Texture2D" uid="uid://bff20cp0rjuop" path="res://assets/vegetables/pumpkin/pumpkin.png" id="4_147a7"]
+[ext_resource type="Texture2D" uid="uid://d4ibbbiv8yeek" path="res://assets/vegetables/tomatoe/tomatoe.png" id="5_15fhk"]
+[ext_resource type="Texture2D" uid="uid://cbkdocbbveo0t" path="res://assets/vegetables/broccoli/Broc.png" id="6_147a7"]
+
+[node name="SeedSelectionMenu" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -43.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+script = ExtResource("1_qqcfp")
+
+[node name="CarrotVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CarrotPriceLabel" type="Label" parent="CarrotVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+justification_flags = 160
+
+[node name="CarrotButton" type="TextureButton" parent="CarrotVBox"]
+layout_mode = 2
+texture_normal = ExtResource("2_8fcxm")
+stretch_mode = 5
+
+[node name="PotatoeVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PotatoePriceLabel" type="Label" parent="PotatoeVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+justification_flags = 160
+
+[node name="PotatoeButton" type="TextureButton" parent="PotatoeVBox"]
+layout_mode = 2
+texture_normal = ExtResource("3_8fcxm")
+stretch_mode = 3
+
+[node name="PumpkinVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PumpkinPriceLabel" type="Label" parent="PumpkinVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+justification_flags = 160
+
+[node name="PumpkinButton" type="TextureButton" parent="PumpkinVBox"]
+layout_mode = 2
+texture_normal = ExtResource("4_147a7")
+stretch_mode = 3
+
+[node name="TomatoeVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TomatoePriceLabel" type="Label" parent="TomatoeVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+justification_flags = 160
+
+[node name="TomatoeButton" type="TextureButton" parent="TomatoeVBox"]
+layout_mode = 2
+texture_normal = ExtResource("5_15fhk")
+stretch_mode = 3
+
+[node name="BroccoliVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BroccoliPriceLabel" type="Label" parent="BroccoliVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+justification_flags = 160
+
+[node name="BroccoliButton" type="TextureButton" parent="BroccoliVBox"]
+layout_mode = 2
+texture_normal = ExtResource("6_147a7")
+stretch_mode = 3
+
+[connection signal="pressed" from="CarrotVBox/CarrotButton" to="." method="_on_carrot_button_pressed"]
+[connection signal="pressed" from="PotatoeVBox/PotatoeButton" to="." method="_on_potatoe_button_pressed"]
+[connection signal="pressed" from="PumpkinVBox/PumpkinButton" to="." method="_on_pumpkin_button_pressed"]
+[connection signal="pressed" from="TomatoeVBox/TomatoeButton" to="." method="_on_tomatoe_button_pressed"]
+[connection signal="pressed" from="BroccoliVBox/BroccoliButton" to="." method="_on_broccoli_button_pressed"]

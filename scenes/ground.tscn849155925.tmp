@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3bgdxesfokge"]
+
+[ext_resource type="Texture2D" uid="uid://d11beg17eejke" path="res://assets/GroundSprite2.png" id="1_pybca"]
+
+[sub_resource type="GDScript" id="GDScript_mi8v4"]
+script/source = "extends Node2D
+
+
+var planted :bool = false;
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass;
+	
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var scene_resource = load(Globals.vegToScenePath[Globals.currentSeedSelection]) as PackedScene
+		add_child(scene_resource.instantiate())
+		
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
+size = Vector2(16, 16)
+
+[node name="Ground" type="Node2D"]
+script = SubResource("GDScript_mi8v4")
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_pybca")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pybca")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=4 uid="uid://dqahq5hbrb1oa"]
+
+[ext_resource type="Script" uid="uid://v3jgjympeppe" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dm4cbiooemj51" path="res://assets/backGround.png" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cmkhsm5b48ug8" path="res://scenes/bird.tscn" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bjyuqgofoyosr" path="res://scenes/seed_selection_menu.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cbbktumd7pycl" path="res://scenes/tile_map_layer.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://djufr2nq72uc6" path="res://scenes/gold_counter.tscn" id="4_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c3bgdxesfokge" path="res://scenes/ground.tscn" id="7_o6xl0"]
+
+[sub_resource type="Curve2D" id="Curve2D_tbgi4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 320, 184, 0, 0, 0, 0, 0, 184, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="main" type="Node"]
+script = ExtResource("1_tbgi4")
+bird_scene = ExtResource("2_tefeu")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 92)
+scale = Vector2(64, 26.2857)
+texture = ExtResource("2_tbgi4")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("4_tbgi4")]
+position = Vector2(192, -16)
+tile_map_data = PackedByteArray("AAD7/wUAAQAAAAAAAQD7/wYAAQAAAAAAAQD7/wcAAQAAAAAAAQD8/wUAAQAAAAAAAQD8/wYAAQAAAAAAAQD8/wcAAQAAAAAAAQD9/wUAAQAAAAAAAQD9/wYAAQAAAAAAAQD9/wcAAQAAAAAAAQD+/wYAAQAAAAAAAQD+/wcAAQAAAAAAAQD//wUAAQAAAAAAAQD//wYAAQAAAAAAAQD//wcAAQAAAAAAAQAAAAUAAQAAAAAAAQAAAAYAAQAAAAAAAQAAAAcAAQAAAAAAAQD+/wUAAQAAAAAAAQD6/wQAAQAAAAAAAQD6/wUAAQAAAAAAAQD6/wYAAQAAAAAAAQD6/wcAAQAAAAAAAQD6/wgAAQAAAAAAAQD7/wgAAQAAAAAAAQD8/wgAAQAAAAAAAQD9/wgAAQAAAAAAAQD+/wgAAQAAAAAAAQD//wgAAQAAAAAAAQAAAAgAAQAAAAAAAQABAAgAAQAAAAAAAQABAAcAAQAAAAAAAQABAAYAAQAAAAAAAQABAAUAAQAAAAAAAQABAAQAAQAAAAAAAQAAAAQAAQAAAAAAAQD//wQAAQAAAAAAAQD+/wQAAQAAAAAAAQD9/wQAAQAAAAAAAQD8/wQAAQAAAAAAAQD7/wQAAQAAAAAAAQD5/wMAAQAAAAAAAQD5/wQAAQAAAAAAAQD5/wUAAQAAAAAAAQD5/wYAAQAAAAAAAQD5/wcAAQAAAAAAAQD5/wgAAQAAAAAAAQD5/wkAAQAAAAAAAQD6/wkAAQAAAAAAAQD7/wkAAQAAAAAAAQD8/wkAAQAAAAAAAQD9/wkAAQAAAAAAAQD+/wkAAQAAAAAAAQD//wkAAQAAAAAAAQAAAAkAAQAAAAAAAQABAAkAAQAAAAAAAQACAAkAAQAAAAAAAQACAAgAAQAAAAAAAQACAAcAAQAAAAAAAQACAAYAAQAAAAAAAQACAAUAAQAAAAAAAQACAAQAAQAAAAAAAQACAAMAAQAAAAAAAQABAAMAAQAAAAAAAQAAAAMAAQAAAAAAAQD//wMAAQAAAAAAAQD+/wMAAQAAAAAAAQD9/wMAAQAAAAAAAQD8/wMAAQAAAAAAAQD7/wMAAQAAAAAAAQD6/wMAAQAAAAAAAQD4/wIAAAAFAA4AAAADAAIAAAAHAA4AAAADAAMAAAAHAA8AAAADAAQAAAAHAA8AAAADAAUAAAAHAA8AAAADAAYAAAAHAA8AAAADAAcAAAAHAA8AAAADAAgAAAAHAA8AAAADAAkAAAAHAA8AAAADAAoAAAAHABAAAAD4/woAAAAFABAAAAACAAoAAAAGABAAAAABAAoAAAAGABAAAAAAAAoAAAAGABAAAAD//woAAAAGABAAAAD+/woAAAAGABAAAAD9/woAAAAGABAAAAD8/woAAAAGABAAAAD7/woAAAAGABAAAAD6/woAAAAGABAAAAD5/woAAAAGABAAAAD4/wkAAAAFAA8AAAD4/wgAAAAFAA8AAAD4/wcAAAAFAA8AAAD4/wYAAAAFAA8AAAD4/wUAAAAFAA8AAAD4/wQAAAAFAA8AAAD4/wMAAAAFAA8AAAD5/wIAAAAGAA4AAAD6/wIAAAAGAA4AAAD7/wIAAAAGAA4AAAD8/wIAAAAGAA4AAAD9/wIAAAAGAA4AAAD+/wIAAAAGAA4AAAD//wIAAAAGAA4AAAAAAAIAAAAGAA4AAAABAAIAAAAGAA4AAAACAAIAAAAGAA4AAAA=")
+
+[node name="GoldCounter" parent="." instance=ExtResource("4_tefeu")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeedSelectionMenu" parent="CanvasLayer" instance=ExtResource("4_jyhfs")]
+
+[node name="BirdSpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="BirdSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_tbgi4")
+
+[node name="BirdSpawnLocation" type="PathFollow2D" parent="BirdSpawn"]
+
+[node name="OutOfBoundsGround" parent="." instance=ExtResource("7_o6xl0")]
+position = Vector2(-64, 80)
+
+[connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]

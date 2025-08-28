@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqahq5hbrb1oa"]
+
+[ext_resource type="PackedScene" uid="uid://ck77nnwb0pk0i" path="res://scenes/vegetable.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c3bgdxesfokge" path="res://scenes/ground.tscn" id="2_0wfyh"]
+
+[node name="main" type="Node"]
+
+[node name="vegetable" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(20, 18)
+seedGrowTime = 3
+halfGrowTime = 4
+
+[node name="Ground" parent="." instance=ExtResource("2_0wfyh")]
+position = Vector2(51, 48)

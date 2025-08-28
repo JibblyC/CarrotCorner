@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://djufr2nq72uc6"]
+
+[ext_resource type="Script" uid="uid://nmw20mbrh4q6" path="res://scripts/gold_counter.gd" id="1_4ch30"]
+[ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/singleCoin1.png" id="2_7eso2"]
+[ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
+
+[node name="GoldCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_4ch30")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_bottom = 16.0
+grow_horizontal = 0
+alignment = 1
+
+[node name="CoinImg" type="TextureRect" parent="HSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_7eso2")
+
+[node name="GoldLabel" type="Label" parent="HSplitContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+
+[node name="NotEnoughGoldAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7eso2")

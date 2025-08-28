@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmkhsm5b48ug8"]
+
+[ext_resource type="Script" uid="uid://bp7ehospl4poi" path="res://scripts/bird.gd" id="1_crnqq"]
+[ext_resource type="Texture2D" uid="uid://beqsoq5dhdnow" path="res://assets/BirdAnimation.png" id="1_g5k2s"]
+[ext_resource type="Texture2D" uid="uid://c52pbsft36hjd" path="res://assets/BirdIdleAnimation.png" id="3_j88tq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crnqq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j88tq"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cchwj"]
+atlas = ExtResource("1_g5k2s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ljjq"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axl6x"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr30m"]
+atlas = ExtResource("3_j88tq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ljjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crnqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j88tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cchwj")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ljjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axl6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr30m")
+}],
+"loop": true,
+"name": &"peck",
+"speed": 5.0
+}]
+
+[node name="Bird" type="Node2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_crnqq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ljjq")
+animation = &"peck"
+frame_progress = 0.705875
+
+[node name="PeckTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]

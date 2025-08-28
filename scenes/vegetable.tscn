@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck77nnwb0pk0i"]
+
+[ext_resource type="Script" uid="uid://cvi7jl18no5os" path="res://scripts/vegetable.gd" id="1_wj4aq"]
+
+[sub_resource type="Animation" id="Animation_djwv2"]
+resource_name = "HarvestPop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k32nv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6wlp8"]
+_data = {
+&"HarvestPop": SubResource("Animation_djwv2"),
+&"RESET": SubResource("Animation_k32nv")
+}
+
+[node name="vegetable" type="Node2D"]
+script = ExtResource("1_wj4aq")
+
+[node name="VegSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="SeedTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HalfGrownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HarvestSprite" type="Sprite2D" parent="."]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HarvestSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_6wlp8")
+}
+
+[connection signal="timeout" from="SeedTimer" to="." method="_on_seed_timer_timeout"]
+[connection signal="timeout" from="HalfGrownTimer" to="." method="_on_half_grown_timer_timeout"]
+[connection signal="animation_finished" from="HarvestSprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

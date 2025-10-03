@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmkhsm5b48ug8"]
+[gd_scene load_steps=20 format=3 uid="uid://cmkhsm5b48ug8"]
 
 [ext_resource type="Script" uid="uid://bp7ehospl4poi" path="res://scripts/bird.gd" id="1_crnqq"]
 [ext_resource type="Texture2D" uid="uid://3rhvchsx81py" path="res://assets/Pixel Art Bird 16x16/BlackBirdFly.png" id="2_3po83"]
@@ -126,6 +126,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twsrt"]
+size = Vector2(20.000004, 20.000004)
+
 [node name="Bird" type="Node2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_crnqq")
@@ -139,6 +142,14 @@ frame_progress = 0.0235941
 [node name="PeckTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.4305107e-06, -1.0658139e-13)
+scale = Vector2(0.9999995, 0.9999995)
+shape = SubResource("RectangleShape2D_twsrt")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

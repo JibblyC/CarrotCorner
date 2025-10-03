@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 		else:
 			global_position = targetGround.global_position
 			change_state(STATES.IDLE)
+			targetGround.isBirdOnPlant = true
 			$PeckTimer.start()
 			
 func _on_peck_timer_timeout() -> void:
@@ -28,12 +29,9 @@ func _on_animated_sprite_2d_animation_looped() -> void:
 	if state == STATES.PECKING and $AnimatedSprite2D.animation == 'peck' :
 		if targetGround.plantedVeg :
 			change_state(STATES.IDLE)
-			targetGround.isBirdOnPlant = true;
 			targetGround.plantedVeg.remove_one_health()
 			if !targetGround.plantedVeg.is_plant_healthy():
-				#TODO hardcoded to one OOB node, maybe add a random list?
-				targetGround = get_node("/root/main/OutOfBoundsGround")
-				change_state(STATES.FLYING)
+				fly_away();
 			else :
 				$PeckTimer.start()	
 				
@@ -56,5 +54,23 @@ func change_state(changeState: STATES) -> void :
 func move_toward_target(target_position: Vector2, distance: float):
 	var direction = (target_position - global_position).normalized()
 	global_position += direction * distance
+	
+	
+#TODO -- Add in click logic to "SHOO" birds away
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		health -= 1;
+		if(health <= 0):
+			fly_away()
+		
+func fly_away() -> void :
+	#TODO -- hardcoded to one OOB node, maybe add a random list?
+	targetGround.isBirdOnPlant = false
+	targetGround = get_node("/root/main/OutOfBoundsGround")
+	change_state(STATES.FLYING)
+	
+	
+
+#TODO -- Picking plant mid flight of bird causes bug
 			
 		

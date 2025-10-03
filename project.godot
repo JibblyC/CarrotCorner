@@ -12,7 +12,7 @@ config_version=5
 
 config/name="CarrotCorner"
 run/main_scene="uid://dqahq5hbrb1oa"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
 [autoload]
@@ -33,6 +33,10 @@ window/stretch/scale_mode="integer"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 [rendering]
 

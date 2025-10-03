@@ -23,14 +23,13 @@ var isHarvested:bool = false;
 
 var grown_shader: Shader = preload("res://assets/shaders/vegetable_wind_sway.gdshader")
 
-
-
-# Called when the node enters the scene tree for the first time.
+#TODO -- Add in some healthbar logic - Progressbar Node that only displays when not full
 func _ready() -> void:
 	$VegSprite.texture = seedTexture;
 	$SeedTimer.start(seedGrowTime);
 	
 func _process(delta: float) -> void:
+	$HealthBar.value = currentHealth;
 	if !is_plant_healthy():
 		delete_self()
 		

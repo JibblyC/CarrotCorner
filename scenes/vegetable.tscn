@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck77nnwb0pk0i"]
+[gd_scene load_steps=9 format=3 uid="uid://ck77nnwb0pk0i"]
 
 [ext_resource type="Script" uid="uid://cvi7jl18no5os" path="res://scripts/vegetable.gd" id="1_wj4aq"]
 
@@ -62,6 +62,22 @@ _data = {
 &"RESET": SubResource("Animation_k32nv")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wj4aq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_w5x81"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_djwv2"]
+texture = SubResource("CanvasTexture_w5x81")
+modulate_color = Color(0.302831, 0.510458, 0.289001, 1)
+
+[sub_resource type="GDScript" id="GDScript_wj4aq"]
+script/source = "extends ProgressBar
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	value = get_parent().currentHealth;
+"
+
 [node name="vegetable" type="Node2D"]
 script = ExtResource("1_wj4aq")
 
@@ -82,6 +98,23 @@ visible = false
 libraries = {
 &"": SubResource("AnimationLibrary_6wlp8")
 }
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxTexture_wj4aq")
+theme_override_styles/fill = SubResource("StyleBoxTexture_djwv2")
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
+script = SubResource("GDScript_wj4aq")
 
 [connection signal="timeout" from="SeedTimer" to="." method="_on_seed_timer_timeout"]
 [connection signal="timeout" from="HalfGrownTimer" to="." method="_on_half_grown_timer_timeout"]

@@ -8,11 +8,14 @@ var targetGround : ground;
 var state: STATES = STATES.DEFAULT
 var movementSpeed: float = 1;
 var health: float = 3;
+var clickable: bool = true;
+var plantedGround : ground;
 
 func _ready() -> void:
 	change_state(STATES.FLYING)
+	plantedGround = targetGround
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if state == STATES.FLYING :
 		if global_position.distance_to(targetGround.global_position) >= movementSpeed :
 			move_toward_target(targetGround.global_position, movementSpeed) 
@@ -34,6 +37,9 @@ func _on_animated_sprite_2d_animation_looped() -> void:
 				fly_away();
 			else :
 				$PeckTimer.start()	
+		else:
+			fly_away()
+			
 				
 func change_state(changeState: STATES) -> void :
 	match changeState:
@@ -55,22 +61,23 @@ func move_toward_target(target_position: Vector2, distance: float):
 	var direction = (target_position - global_position).normalized()
 	global_position += direction * distance
 	
-	
-#TODO -- Add in click logic to "SHOO" birds away
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		health -= 1;
-		if(health <= 0):
+		if(health <= 0 && clickable):
 			fly_away()
+	
 		
 func fly_away() -> void :
-	#TODO -- hardcoded to one OOB node, maybe add a random list?
-	targetGround.isBirdOnPlant = false
+	$AnimatedSprite2D.stop()
+	$PeckTimer.stop()
+	$ShooTimer.start()
+		#TODO -- hardcoded to one OOB node, maybe add a random list?
 	targetGround = get_node("/root/main/OutOfBoundsGround")
 	change_state(STATES.FLYING)
+	clickable = false
 	
-	
-
-#TODO -- Picking plant mid flight of bird causes bug
+func _on_shoo_timer_timeout() -> void:
+	plantedGround.isBirdOnPlant = false
 			
 		

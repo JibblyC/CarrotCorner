@@ -8,7 +8,6 @@ var isBirdOnPlant : bool = false;
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print(isBirdOnPlant)
 		if not planted and Globals.currentSeedSelection != "":
 			plantedVeg = load(Globals.vegToScenePath[Globals.currentSeedSelection]).instantiate() as abstractVeg;
 			if(Globals.check_if_enough_gold(plantedVeg.goldCost)):

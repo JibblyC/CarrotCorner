@@ -14,6 +14,7 @@ var vegToScenePath = {
 };
 
 var plantedGround = {};
+var outOfBoundsGround = {};
 
 
 enum VEG_GOLD_BUY_COST {DEFAULT, CARROT = 1, POTATOE = 2, PUMPKIN = 4, TOMATOE = 5, BROCCOLI = 6 }

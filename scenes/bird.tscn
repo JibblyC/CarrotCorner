@@ -140,7 +140,7 @@ animation = &"peck"
 frame_progress = 0.0235941
 
 [node name="ShooTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 one_shot = true
 
 [node name="PeckTimer" type="Timer" parent="."]
@@ -153,8 +153,11 @@ position = Vector2(-1.4305107e-06, -1.0658139e-13)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_twsrt")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="ShooTimer" to="." method="_on_shoo_timer_timeout"]
 [connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

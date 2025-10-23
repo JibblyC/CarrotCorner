@@ -72,8 +72,10 @@ func fly_away() -> void :
 	$AnimatedSprite2D.stop()
 	$PeckTimer.stop()
 	$ShooTimer.start()
-		#TODO -- hardcoded to one OOB node, maybe add a random list?
-	targetGround = get_node("/root/main/OutOfBoundsGround")
+	var keys = Globals.outOfBoundsGround.keys()
+	var random_key = keys[randi() % keys.size()]
+	targetGround = Globals.outOfBoundsGround[random_key]
+	#targetGround = get_node("/root/main/OutOfBoundsGround")
 	change_state(STATES.FLYING)
 	clickable = false
 	
@@ -81,3 +83,5 @@ func _on_shoo_timer_timeout() -> void:
 	plantedGround.isBirdOnPlant = false
 			
 		
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free() # Replace with function body.

@@ -2,6 +2,11 @@ extends Node
 
 @export var bird_scene: PackedScene
 
+func _ready() -> void:
+	for child in $OutOfBoundsLocations.get_children():
+		Globals.outOfBoundsGround[child.get_instance_id()] = child;
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Globals.currentSeedSelection != "" :

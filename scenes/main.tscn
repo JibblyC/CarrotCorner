@@ -42,7 +42,18 @@ curve = SubResource("Curve2D_tbgi4")
 
 [node name="BirdSpawnLocation" type="PathFollow2D" parent="BirdSpawn"]
 
-[node name="OutOfBoundsGround" parent="." instance=ExtResource("7_o6xl0")]
+[node name="OutOfBoundsLocations" type="Node" parent="."]
+
+[node name="OutOfBoundsGround" parent="OutOfBoundsLocations" instance=ExtResource("7_o6xl0")]
 position = Vector2(-64, 80)
+
+[node name="OutOfBoundsGround2" parent="OutOfBoundsLocations" instance=ExtResource("7_o6xl0")]
+position = Vector2(160, -56)
+
+[node name="OutOfBoundsGround3" parent="OutOfBoundsLocations" instance=ExtResource("7_o6xl0")]
+position = Vector2(160, 248)
+
+[node name="OutOfBoundsGround4" parent="OutOfBoundsLocations" instance=ExtResource("7_o6xl0")]
+position = Vector2(416, 80)
 
 [connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]

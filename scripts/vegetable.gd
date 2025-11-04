@@ -16,6 +16,8 @@ class_name abstractVeg
 
 @export var currentHealth = 3;
 
+signal vegetable_eaten;
+
 
 
 var isFullyGrown:bool = false;
@@ -66,4 +68,5 @@ func remove_one_health() -> void :
 	
 func delete_self() -> void :
 	Globals.plantedGround.erase(self.get_instance_id())
+	vegetable_eaten.emit()
 	queue_free()

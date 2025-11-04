@@ -5,6 +5,7 @@ class_name ground
 var planted :bool = false;
 var plantedVeg;
 var isBirdOnPlant : bool = false;
+@onready var cursor = $"../../Cursor"
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -15,6 +16,9 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				planted = true
 				Globals.totalGold -= plantedVeg.goldCost;
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
+				Globals.currentSeedSelectionSprite.visible = false;
+				cursor.plant_seed_particle();
+				plantedVeg.vegetable_eaten.connect(reset_ground_status)
 			else:
 				var goldNode = get_node("GoldCounter") as goldCounter
 				goldNode.not_enough_gold_animation();
@@ -28,4 +32,8 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				
 func set_bird_planted(value: bool) -> void:
 		isBirdOnPlant = value
+		
+func reset_ground_status() -> void :
+	planted = false;
+	isBirdOnPlant = false;
 				

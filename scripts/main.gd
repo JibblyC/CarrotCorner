@@ -1,6 +1,7 @@
 extends Node 
 
 @export var bird_scene: PackedScene
+@onready var cursor = $Cursor
 
 func _ready() -> void:
 	for child in $OutOfBoundsLocations.get_children():
@@ -17,6 +18,7 @@ func _unhandled_input(event) :
 		if Globals.currentSeedSelectionSprite and Globals.currentSeedSelectionSprite.is_inside_tree() :
 			Globals.currentSeedSelection = ""
 			Globals.currentSeedSelectionSprite.queue_free()
+			cursor.change_cursor_sprite(Globals.CURSOR_STATE.IDLE)
 	
 func _on_bird_spawn_timer_timeout() -> void:
 	if Globals.plantedGround.size() > 0 :

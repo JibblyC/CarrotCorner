@@ -6,6 +6,16 @@ var planted :bool = false;
 var plantedVeg;
 var isBirdOnPlant : bool = false;
 @onready var cursor = $"../../Cursor"
+@onready var hilightBorder = Sprite2D.new()
+
+var grown_shader: Shader = preload("res://assets/shaders/outline.gdshader")
+
+func _ready() -> void:
+	var shader_material = ShaderMaterial.new();
+	shader_material.shader = grown_shader;
+	hilightBorder.texture = $GroundSprite.texture
+	hilightBorder.material = shader_material
+	hilightBorder.z_index = z_index + 10
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -16,7 +26,6 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				planted = true
 				Globals.totalGold -= plantedVeg.goldCost;
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
-				Globals.currentSeedSelectionSprite.visible = false;
 				cursor.plant_seed_particle();
 				plantedVeg.vegetable_eaten.connect(reset_ground_status)
 			else:
@@ -37,3 +46,8 @@ func reset_ground_status() -> void :
 	planted = false;
 	isBirdOnPlant = false;
 				
+func _on_area_2d_mouse_entered() -> void:
+	add_child(hilightBorder)
+	
+func _on_area_2d_mouse_exited() -> void:
+	remove_child(hilightBorder)

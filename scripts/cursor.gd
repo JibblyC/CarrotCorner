@@ -1,5 +1,7 @@
 extends Node
 
+#TODO -- Need to add shooing animation for birds
+
 var state_to_sprite_map = {
 	Globals.CURSOR_STATE.IDLE: "res://assets/Cursor/idle.png",
 	Globals.CURSOR_STATE.HOLD: "res://assets/Cursor/holding.png"
@@ -33,7 +35,7 @@ func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:
 	
 func plant_seed_particle() -> void :
 	$SeedPlant.emitting = true;
-	#TODO -- This might look better attached to veg
+	#TODO -- This might look better attached to veg -- Currently not right
 	$SeedPlant.set_position(get_viewport().get_mouse_position())
 	
 	

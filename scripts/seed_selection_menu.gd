@@ -32,7 +32,8 @@ func _on_broccoli_button_pressed() -> void:
 	_current_seed_selected("broccoli");
 	
 func _current_seed_selected(seedString : String) -> void:
-	Globals.reset_sprite_on_button_press()
+	
+	Globals.currentSeedSelectionSprite = Sprite2D.new()
 	Globals.currentSeedSelection = seedString;
 	Globals.currentSeedSelectionSprite.texture = load("res://assets/vegetables/" + seedString + "/" + seedString + "SeedPack.png")
 	Globals.add_sprite_to_scene()

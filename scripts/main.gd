@@ -6,16 +6,11 @@ extends Node
 func _ready() -> void:
 	for child in $OutOfBoundsLocations.get_children():
 		Globals.outOfBoundsGround[child.get_instance_id()] = child;
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Globals.currentSeedSelection != "" :
-		Globals.currentSeedSelectionSprite.set_position(get_viewport().get_mouse_position())
 		
 func _unhandled_input(event) :
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if Globals.currentSeedSelectionSprite and Globals.currentSeedSelectionSprite.is_inside_tree() :
+			#TODO -- Seedselection stays on screen after clear, they are stacking
 			Globals.currentSeedSelection = ""
 			Globals.currentSeedSelectionSprite.queue_free()
 			cursor.change_cursor_sprite(Globals.CURSOR_STATE.IDLE)

@@ -36,6 +36,7 @@ tile_map_data = PackedByteArray("AAD4/wIAAAACAAMAAAADAAIAAAADAAMAAAADAAMAAAAHAAU
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 
 [node name="BirdSpawn" type="Path2D" parent="."]
 curve = SubResource("Curve2D_tbgi4")

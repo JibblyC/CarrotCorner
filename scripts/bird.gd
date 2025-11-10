@@ -63,6 +63,7 @@ func move_toward_target(target_position: Vector2, distance: float):
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		SignalBus.bird_clicked.emit();
 		health -= 1;
 		if(health <= 0 && clickable):
 			fly_away()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://by1elj6ufj5uq"]
+[gd_scene load_steps=9 format=3 uid="uid://by1elj6ufj5uq"]
 
 [ext_resource type="Script" uid="uid://bu3h0kwfa21kk" path="res://scripts/cursor.gd" id="1_1eco6"]
+[ext_resource type="Texture2D" uid="uid://borwh8uumqdl0" path="res://assets/Cursor/punching_SpriteSheet.png" id="2_s0nli"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1eco6"]
 
@@ -8,6 +9,35 @@
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 color = Color(0.33940485, 0.29812568, 0.2203449, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndevg"]
+atlas = ExtResource("2_s0nli")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5qf0"]
+atlas = ExtResource("2_s0nli")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pey64"]
+atlas = ExtResource("2_s0nli")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjntw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndevg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5qf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pey64")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 6.0
+}]
 
 [node name="Cursor" type="Node"]
 script = ExtResource("1_1eco6")
@@ -19,3 +49,9 @@ texture = SubResource("CanvasTexture_1eco6")
 lifetime = 0.5
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_1eco6")
+
+[node name="PunchAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_xjntw")
+animation = &"punch"
+frame_progress = 0.95962983

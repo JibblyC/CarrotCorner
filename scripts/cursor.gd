@@ -1,7 +1,5 @@
 extends Node
 
-#TODO -- Need to add shooing animation for birds
-
 var state_to_sprite_map = {
 	Globals.CURSOR_STATE.IDLE: "res://assets/Cursor/idle.png",
 	Globals.CURSOR_STATE.HOLD: "res://assets/Cursor/holding.png"
@@ -9,11 +7,9 @@ var state_to_sprite_map = {
 
 var cursorHotSpot = Vector2(4,0);
 
-@onready var seedSelectionMenu = $"../CanvasLayer/SeedSelectionMenu"
-
 func _ready():
 	change_cursor_sprite(Globals.CURSOR_STATE.IDLE);
-	seedSelectionMenu.seed_selected.connect(change_cursor_sprite)
+	SignalBus.bird_clicked.connect(play_punch_animation)
 
 	
 func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:
@@ -37,5 +33,10 @@ func plant_seed_particle() -> void :
 	$SeedPlant.emitting = true;
 	#TODO -- This might look better attached to veg -- Currently not right
 	$SeedPlant.set_position(get_viewport().get_mouse_position())
+	
+func play_punch_animation() -> void :
+	$PunchAnimation.visible = true
+	$PunchAnimation.play()
+	$PunchAnimation.set_position(get_viewport().get_mouse_position())
 	
 	

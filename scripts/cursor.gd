@@ -31,12 +31,15 @@ func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:
 	
 func plant_seed_particle() -> void :
 	$SeedPlant.emitting = true;
-	#TODO -- This might look better attached to veg -- Currently not right
+	#TODO -- This might look better attached to veg -- Currently not right / Combine with hold cursor
 	$SeedPlant.set_position(get_viewport().get_mouse_position())
 	
-func play_punch_animation() -> void :
+func play_punch_animation(bird_location : Vector2) -> void :
+	$PunchAnimation.z_index = 10
 	$PunchAnimation.visible = true
 	$PunchAnimation.play()
-	$PunchAnimation.set_position(get_viewport().get_mouse_position())
+	$PunchAnimation.set_position(bird_location)
 	
 	
+func _on_punch_animation_animation_finished() -> void:
+	$PunchAnimation.visible = false;

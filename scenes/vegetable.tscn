@@ -74,7 +74,7 @@ modulate_color = Color(0.302831, 0.510458, 0.289001, 1)
 script/source = "extends ProgressBar
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	value = get_parent().currentHealth;
 "
 

@@ -30,7 +30,7 @@ func _ready() -> void:
 	$VegSprite.texture = seedTexture;
 	$SeedTimer.start(seedGrowTime);
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$HealthBar.value = currentHealth;
 	if !is_plant_healthy():
 		delete_self()

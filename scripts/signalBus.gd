@@ -1,3 +1,3 @@
 extends Node
 
-signal bird_clicked;
+signal bird_clicked(bird_location);

@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pey64")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
 "speed": 6.0
 }]
@@ -52,6 +52,9 @@ process_material = SubResource("ParticleProcessMaterial_1eco6")
 
 [node name="PunchAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
+visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_xjntw")
 animation = &"punch"
 frame_progress = 0.95962983
+
+[connection signal="animation_finished" from="PunchAnimation" to="." method="_on_punch_animation_animation_finished"]

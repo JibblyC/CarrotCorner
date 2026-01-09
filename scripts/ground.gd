@@ -22,12 +22,11 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		if not planted and Globals.currentSeedSelection != "":
 			plantedVeg = load(Globals.vegToScenePath[Globals.currentSeedSelection]).instantiate() as abstractVeg;
 			if(Globals.check_if_enough_gold(plantedVeg.goldCost)):
-				add_child(plantedVeg)
 				planted = true
 				Globals.totalGold -= plantedVeg.goldCost;
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
-				cursor.plant_seed_particle();
 				plantedVeg.vegetable_eaten.connect(reset_ground_status)
+				$PlantSeedParticles.emitting = true;
 			else:
 				var goldNode = get_node("GoldCounter") as goldCounter
 				goldNode.not_enough_gold_animation();
@@ -51,3 +50,6 @@ func _on_area_2d_mouse_entered() -> void:
 	
 func _on_area_2d_mouse_exited() -> void:
 	remove_child(hilightBorder)
+
+func _on_plant_seed_particles_finished() -> void:
+	add_child(plantedVeg)

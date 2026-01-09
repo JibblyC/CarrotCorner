@@ -4,8 +4,6 @@ class_name seed_selection
 
 @onready var cursor = $"../../Cursor"
 
-signal seed_selected;
-
 var defaultFauntSize : int = 12
 
 func _ready() -> void:
@@ -37,4 +35,4 @@ func _current_seed_selected(seedString : String) -> void:
 	Globals.currentSeedSelection = seedString;
 	Globals.currentSeedSelectionSprite.texture = load("res://assets/vegetables/" + seedString + "/" + seedString + "SeedPack.png")
 	Globals.add_sprite_to_scene()
-	seed_selected.emit(Globals.CURSOR_STATE.HOLD);
+	SignalBus.seed_selected.emit();

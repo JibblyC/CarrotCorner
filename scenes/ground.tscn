@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3bgdxesfokge"]
+[gd_scene load_steps=7 format=3 uid="uid://c3bgdxesfokge"]
 
 [ext_resource type="Script" uid="uid://c1ve4e0esnf6r" path="res://scripts/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://bn06u4l2v6dxs" path="res://assets/groundSpriteWithBorder.png" id="3_lmksl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
 size = Vector2(16, 16)
+
+[sub_resource type="Curve" id="Curve_mi8v4"]
+_data = [Vector2(0.046511635, 1), 0.0, 0.0, 0, 0, Vector2(0.93410856, 0.46918344), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ndevg"]
+curve = SubResource("Curve_mi8v4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lmksl"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.8, 0.8, 0.8)
+emission_shape = 1
+emission_sphere_radius = 12.95
+gravity = Vector3(0, 90, 0)
+scale_curve = SubResource("CurveTexture_ndevg")
+color = Color(0.6187641, 0.40543687, 0.2666634, 0.8862745)
 
 [node name="Ground" type="Node2D"]
 script = ExtResource("1_mi8v4")
@@ -17,7 +33,16 @@ texture = ExtResource("3_lmksl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_pybca")
 
+[node name="PlantSeedParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.48
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_lmksl")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="finished" from="PlantSeedParticles" to="." method="_on_plant_seed_particles_finished"]

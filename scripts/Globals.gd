@@ -25,7 +25,7 @@ enum VEG_SEED_GROW_TIME_SECS {DEFAULT, CARROT = 1, POTATOE = 2, PUMPKIN = 3, TOM
 enum VEG_SAPLING_GROW_TIME_SECS {DEFAULT, CARROT = 1, POTATOE = 2, PUMPKIN = 3, TOMATOE = 4, BROCCOLI = 4 }
 
 
-enum CURSOR_STATE { IDLE, HOLD }
+enum CURSOR_STATE { IDLE, HOLD , RELEASE }
 
 func add_sprite_to_scene() -> void :
 		selectSeedUI.add_child(Globals.currentSeedSelectionSprite)

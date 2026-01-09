@@ -62,10 +62,12 @@ func move_toward_target(target_position: Vector2, distance: float):
 	global_position += direction * distance
 	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and clickable:
 		SignalBus.bird_clicked.emit(global_position);
+		$ClickableTimer.start()
+		clickable = false;
 		health -= 1;
-		if(health <= 0 && clickable):
+		if(health <= 0):
 			fly_away()
 	
 		
@@ -76,7 +78,6 @@ func fly_away() -> void :
 	var keys = Globals.outOfBoundsGround.keys()
 	var random_key = keys[randi() % keys.size()]
 	targetGround = Globals.outOfBoundsGround[random_key]
-	#targetGround = get_node("/root/main/OutOfBoundsGround")
 	change_state(STATES.FLYING)
 	clickable = false
 	
@@ -86,3 +87,7 @@ func _on_shoo_timer_timeout() -> void:
 		
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free() # Replace with function body.
+
+
+func _on_clickable_timer_timeout() -> void:
+	clickable = true; # Replace with function body.

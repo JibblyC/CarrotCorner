@@ -138,6 +138,9 @@ scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6ljjq")
 animation = &"peck"
 
+[node name="ClickableTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="ShooTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
@@ -156,6 +159,7 @@ shape = SubResource("RectangleShape2D_twsrt")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="timeout" from="ClickableTimer" to="." method="_on_clickable_timer_timeout"]
 [connection signal="timeout" from="ShooTimer" to="." method="_on_shoo_timer_timeout"]
 [connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

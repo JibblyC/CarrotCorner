@@ -10,6 +10,10 @@ var cursorHotSpot = Vector2(4,0);
 func _ready():
 	change_cursor_sprite(Globals.CURSOR_STATE.IDLE);
 	SignalBus.bird_clicked.connect(play_punch_animation)
+	SignalBus.seed_selected.connect(cursor_sprite_hold)
+	
+func cursor_sprite_hold() -> void:
+	change_cursor_sprite(Globals.CURSOR_STATE.HOLD)
 
 	
 func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:
@@ -28,11 +32,7 @@ func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:
 			
 	# Set as cursor (adjust hotspot accordingly)
 	Input.set_custom_mouse_cursor(new_texture, Input.CURSOR_ARROW, cursorHotSpot)
-	
-func plant_seed_particle() -> void :
-	$SeedPlant.emitting = true;
-	#TODO -- This might look better attached to veg -- Currently not right / Combine with hold cursor
-	$SeedPlant.set_position(get_viewport().get_mouse_position())
+
 	
 func play_punch_animation(bird_location : Vector2) -> void :
 	$PunchAnimation.z_index = 10
@@ -40,6 +40,7 @@ func play_punch_animation(bird_location : Vector2) -> void :
 	$PunchAnimation.play()
 	$PunchAnimation.set_position(bird_location)
 	
-	
 func _on_punch_animation_animation_finished() -> void:
 	$PunchAnimation.visible = false;
+
+	

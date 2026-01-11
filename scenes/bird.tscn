@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmkhsm5b48ug8"]
+[gd_scene load_steps=22 format=3 uid="uid://cmkhsm5b48ug8"]
 
 [ext_resource type="Script" uid="uid://bp7ehospl4poi" path="res://scripts/bird.gd" id="1_crnqq"]
 [ext_resource type="Texture2D" uid="uid://3rhvchsx81py" path="res://assets/Pixel Art Bird 16x16/BlackBirdFly.png" id="2_3po83"]
 [ext_resource type="Texture2D" uid="uid://b14300prhuxj8" path="res://assets/Pixel Art Bird 16x16/BlackBirdPeck.png" id="3_hq4t0"]
 [ext_resource type="Texture2D" uid="uid://cj8pwokxbst2s" path="res://assets/Pixel Art Bird 16x16/BlackBirdIDle.png" id="3_twsrt"]
+[ext_resource type="Texture2D" uid="uid://c4pn0bqhf8kt3" path="res://assets/Pixel Art Bird 16x16/BirdPunchParticle.png" id="5_b7mtg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq4t0"]
 atlas = ExtResource("2_3po83")
@@ -129,16 +130,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twsrt"]
 size = Vector2(20.000004, 20.000004)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_twsrt"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 14.78
+inherit_velocity_ratio = 0.474
+spread = 166.2
+initial_velocity_max = 42.21
+gravity = Vector3(0, 0, 0)
+
 [node name="Bird" type="Node2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_crnqq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="PeckAnimation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6ljjq")
 animation = &"peck"
 
 [node name="ClickableTimer" type="Timer" parent="."]
+wait_time = 0.7
 one_shot = true
 
 [node name="ShooTimer" type="Timer" parent="."]
@@ -155,12 +166,21 @@ position = Vector2(-1.4305107e-06, -1.0658139e-13)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_twsrt")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="Despawner" type="VisibleOnScreenNotifier2D" parent="."]
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[node name="PunchParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 10
+texture = ExtResource("5_b7mtg")
+lifetime = 0.58
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_twsrt")
+
+[connection signal="animation_finished" from="PeckAnimation" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="PeckAnimation" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="timeout" from="ClickableTimer" to="." method="_on_clickable_timer_timeout"]
 [connection signal="timeout" from="ShooTimer" to="." method="_on_shoo_timer_timeout"]
 [connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Despawner" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

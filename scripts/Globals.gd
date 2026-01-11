@@ -3,6 +3,8 @@ extends Node
 var currentSeedSelection := "";
 var currentSeedSelectionSprite : Sprite2D;
 var totalGold : int = 1000;
+var goldSpent : int = 0;
+var birdsPunched : int = 0;
 
 var vegToScenePath = {
 		"carrot": "res://scenes/carrot.tscn",

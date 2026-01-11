@@ -29,7 +29,7 @@ func _on_peck_timer_timeout() -> void:
 	change_state(STATES.PECKING)
 
 func _on_animated_sprite_2d_animation_looped() -> void:
-	if state == STATES.PECKING and $AnimatedSprite2D.animation == 'peck' :
+	if state == STATES.PECKING and $PeckAnimation.animation == 'peck' :
 		if targetGround.plantedVeg :
 			change_state(STATES.IDLE)
 			targetGround.plantedVeg.remove_one_health()
@@ -45,16 +45,16 @@ func change_state(changeState: STATES) -> void :
 	match changeState:
 		STATES.IDLE:
 			state = STATES.IDLE
-			$AnimatedSprite2D.play("idle")
+			$PeckAnimation.play("idle")
 		STATES.FLYING:
-			$AnimatedSprite2D.play("fly")
+			$PeckAnimation.play("fly")
 			state = STATES.FLYING
 			if targetGround.global_position.x > global_position.x :
-				$AnimatedSprite2D.flip_h = true
-			if targetGround.global_position.x < global_position.x and $AnimatedSprite2D.flip_h == true :
-				$AnimatedSprite2D.flip_h = false
+				$PeckAnimation.flip_h = true
+			if targetGround.global_position.x < global_position.x and $PeckAnimation.flip_h == true :
+				$PeckAnimation.flip_h = false
 		STATES.PECKING:
-			$AnimatedSprite2D.play("peck")
+			$PeckAnimation.play("peck")
 			state = STATES.PECKING
 			
 func move_toward_target(target_position: Vector2, distance: float):
@@ -67,12 +67,13 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		$ClickableTimer.start()
 		clickable = false;
 		health -= 1;
+		$PunchParticles.restart()
 		if(health <= 0):
 			fly_away()
 	
 		
 func fly_away() -> void :
-	$AnimatedSprite2D.stop()
+	$PeckAnimation.stop()
 	$PeckTimer.stop()
 	$ShooTimer.start()
 	var keys = Globals.outOfBoundsGround.keys()
@@ -80,6 +81,7 @@ func fly_away() -> void :
 	targetGround = Globals.outOfBoundsGround[random_key]
 	change_state(STATES.FLYING)
 	clickable = false
+	Globals.birdsPunched += 1;
 	
 func _on_shoo_timer_timeout() -> void:
 	plantedGround.isBirdOnPlant = false

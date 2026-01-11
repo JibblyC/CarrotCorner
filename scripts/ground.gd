@@ -27,6 +27,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
 				plantedVeg.vegetable_eaten.connect(reset_ground_status)
 				$PlantSeedParticles.emitting = true;
+				Globals.goldSpent += plantedVeg.goldCost;
 			else:
 				var goldNode = get_node("GoldCounter") as goldCounter
 				goldNode.not_enough_gold_animation();

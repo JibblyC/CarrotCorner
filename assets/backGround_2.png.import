@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn06u4l2v6dxs"
-path="res://.godot/imported/groundSpriteWithBorder.png-8523c30d44f5a22b4141cd9622a4f9b1.ctex"
+uid="uid://c4ye0qxvrjcv7"
+path="res://.godot/imported/backGround_2.png-bc00510710ac51ea82030fb77a15c91e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/groundSpriteWithBorder.png"
-dest_files=["res://.godot/imported/groundSpriteWithBorder.png-8523c30d44f5a22b4141cd9622a4f9b1.ctex"]
+source_file="res://assets/backGround_2.png"
+dest_files=["res://.godot/imported/backGround_2.png-bc00510710ac51ea82030fb77a15c91e.ctex"]
 
 [params]
 

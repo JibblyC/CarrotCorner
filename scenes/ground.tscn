@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3bgdxesfokge"]
 
 [ext_resource type="Script" uid="uid://c1ve4e0esnf6r" path="res://scripts/ground.gd" id="1_mi8v4"]
-[ext_resource type="Texture2D" uid="uid://bn06u4l2v6dxs" path="res://assets/groundSpriteWithBorder.png" id="3_lmksl"]
+[ext_resource type="Texture2D" uid="uid://ew5kudnvlbx0" path="res://assets/plantGroundBorder.png" id="2_mi8v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
 size = Vector2(16, 16)
@@ -26,7 +26,7 @@ color = Color(0.6187641, 0.40543687, 0.2666634, 0.8862745)
 script = ExtResource("1_mi8v4")
 
 [node name="GroundSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_lmksl")
+texture = ExtResource("2_mi8v4")
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -30,6 +30,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				Globals.goldSpent += plantedVeg.goldCost;
 			else:
 				var goldNode = get_node("GoldCounter") as goldCounter
+				#TODO BUg here
 				goldNode.not_enough_gold_animation();
 				
 		else:

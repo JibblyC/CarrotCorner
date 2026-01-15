@@ -27,18 +27,6 @@ func _process(_delta: float) -> void:
 			
 func _on_peck_timer_timeout() -> void:
 	change_state(STATES.PECKING)
-
-func _on_animated_sprite_2d_animation_looped() -> void:
-	if state == STATES.PECKING and $PeckAnimation.animation == 'peck' :
-		if targetGround.plantedVeg :
-			change_state(STATES.IDLE)
-			targetGround.plantedVeg.remove_one_health()
-			if !targetGround.plantedVeg.is_plant_healthy():
-				fly_away();
-			else :
-				$PeckTimer.start()	
-		else:
-			fly_away()
 			
 				
 func change_state(changeState: STATES) -> void :
@@ -83,8 +71,6 @@ func fly_away() -> void :
 	clickable = false
 	Globals.birdsPunched += 1;
 	
-func _on_shoo_timer_timeout() -> void:
-	plantedGround.isBirdOnPlant = false
 			
 		
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
@@ -93,3 +79,21 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_clickable_timer_timeout() -> void:
 	clickable = true; # Replace with function body.
+
+
+func _on_shoo_timer_timeout() -> void:
+	plantedGround.isBirdOnPlant = false
+	print("here")
+
+
+func _on_peck_animation_animation_looped() -> void:
+	if state == STATES.PECKING and $PeckAnimation.animation == 'peck' :
+		if targetGround.plantedVeg :
+			change_state(STATES.IDLE)
+			targetGround.plantedVeg.remove_one_health()
+			if !targetGround.plantedVeg.is_plant_healthy():
+				fly_away();
+			else :
+				$PeckTimer.start()	
+		else:
+			fly_away()

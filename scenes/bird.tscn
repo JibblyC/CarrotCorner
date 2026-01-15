@@ -178,7 +178,7 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_twsrt")
 
 [connection signal="animation_finished" from="PeckAnimation" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="animation_looped" from="PeckAnimation" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="animation_looped" from="PeckAnimation" to="." method="_on_peck_animation_animation_looped"]
 [connection signal="timeout" from="ClickableTimer" to="." method="_on_clickable_timer_timeout"]
 [connection signal="timeout" from="ShooTimer" to="." method="_on_shoo_timer_timeout"]
 [connection signal="timeout" from="PeckTimer" to="." method="_on_peck_timer_timeout"]

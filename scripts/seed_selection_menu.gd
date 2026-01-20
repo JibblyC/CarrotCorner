@@ -2,8 +2,6 @@ extends HBoxContainer
 
 class_name seed_selection
 
-@onready var cursor = $"../../Cursor"
-
 var defaultFauntSize : int = 12
 
 func _ready() -> void:
@@ -29,10 +27,6 @@ func _on_tomatoe_button_pressed() -> void:
 func _on_broccoli_button_pressed() -> void:
 	_current_seed_selected("broccoli");
 	
-func _current_seed_selected(seedString : String) -> void:
+func _current_seed_selected(_seedString : String) -> void:
 	
-	Globals.currentSeedSelectionSprite = Sprite2D.new()
-	Globals.currentSeedSelection = seedString;
-	Globals.currentSeedSelectionSprite.texture = load("res://assets/vegetables/" + seedString + "/" + seedString + "SeedPack.png")
-	Globals.add_sprite_to_scene()
 	SignalBus.seed_selected.emit();

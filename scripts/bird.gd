@@ -83,7 +83,6 @@ func _on_clickable_timer_timeout() -> void:
 
 func _on_shoo_timer_timeout() -> void:
 	plantedGround.isBirdOnPlant = false
-	print("here")
 
 
 func _on_peck_animation_animation_looped() -> void:

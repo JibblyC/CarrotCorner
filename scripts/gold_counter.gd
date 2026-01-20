@@ -16,17 +16,13 @@ func _ready():
 func not_enough_gold_animation():
 	
 	$NotEnoughGoldAudio.play();
-	
 	$HSplitContainer/GoldLabel.add_theme_color_override("font_color", Color(1, 0, 0));
-	# Create a new Tween
+
 	var tween = get_tree().create_tween()
-	# Then shake left (-8 pixels)
+
 	tween.tween_property(self, "position", original_position - Vector2(8, 0), 0.05).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	# Then smaller shake right
 	tween.tween_property(self, "position", original_position + Vector2(4, 0), 0.05)
-	# Then return to original position
 	tween.tween_property(self, "position", original_position, 0.05)
-		# Connect the finished signal
 	tween.finished.connect(_on_tween_finished)
 
 

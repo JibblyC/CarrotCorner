@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://u1lerhrhpl6c"]
+
+[ext_resource type="Script" uid="uid://8dwcni852f4c" path="res://scripts/seed_selection_button.gd" id="1_tlvlu"]
+[ext_resource type="Texture2D" uid="uid://dmulqv72fdwht" path="res://assets/MenuBackground.png" id="2_tlvlu"]
+[ext_resource type="Texture2D" uid="uid://dpn0lgcb15hwl" path="res://assets/MenuBackgroundHighlight.png" id="3_x7ydd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpu6"]
+texture = ExtResource("2_tlvlu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sq1ls"]
+texture = ExtResource("3_x7ydd")
+
+[node name="SeedSelectionButton" type="Control"]
+layout_mode = 3
+anchor_right = 0.05
+anchor_bottom = 0.1
+offset_top = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tlvlu")
+
+[node name="ToolTipImage" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(32, 80)
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 7.0
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 14.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rgpu6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sq1ls")
+icon_alignment = 1
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

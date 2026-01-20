@@ -12,7 +12,7 @@ func _ready():
 	SignalBus.bird_clicked.connect(play_punch_animation)
 	SignalBus.seed_selected.connect(cursor_sprite_hold)
 	
-func cursor_sprite_hold() -> void:
+func cursor_sprite_hold(_input : Globals.VEGETABLES) -> void:
 	change_cursor_sprite(Globals.CURSOR_STATE.HOLD)
 
 	

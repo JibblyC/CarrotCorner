@@ -25,7 +25,6 @@ var isHarvested:bool = false;
 
 var grown_shader: Shader = preload("res://assets/shaders/vegetable_wind_sway.gdshader")
 
-#TODO -- Add in some healthbar logic - Progressbar Node that only displays when not full
 func _ready() -> void:
 	$VegSprite.texture = seedTexture;
 	$SeedTimer.start(seedGrowTime);

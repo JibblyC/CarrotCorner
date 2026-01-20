@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://djonhi38vjyp"]
+
+[ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="1_tmdlr"]
+
+[resource]
+default_font = ExtResource("1_tmdlr")
+default_font_size = 12

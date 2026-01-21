@@ -4,19 +4,22 @@ class_name goldCounter
 
 var original_position  # stores the node's start position
 
+var goldLabel;
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$HSplitContainer/GoldLabel.text = str(Globals.totalGold);
+	goldLabel.text = str(Globals.totalGold);
 	
 
 func _ready():
 	# Save the initial position (so we can return to it)
 	original_position = position
+	goldLabel = $PanelContainer/HSplitContainer/GoldLabel
 
 func not_enough_gold_animation():
 	
 	$NotEnoughGoldAudio.play();
-	$HSplitContainer/GoldLabel.add_theme_color_override("font_color", Color(1, 0, 0));
+	goldLabel.add_theme_color_override("font_color", Color(1, 0, 0));
 
 	var tween = get_tree().create_tween()
 
@@ -27,6 +30,6 @@ func not_enough_gold_animation():
 
 
 func _on_tween_finished():
-	$HSplitContainer/GoldLabel.add_theme_color_override("font_color", Color(1, 1, 1));
+	goldLabel.add_theme_color_override("font_color", Color(1, 1, 1));
 	
 	

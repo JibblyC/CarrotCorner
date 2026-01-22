@@ -36,26 +36,26 @@ iconImage = ExtResource("2_a4qh3")
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("4_425q4")
-vegetable = 1
+vegetable = 2
 iconImage = ExtResource("4_7v2ui")
 
 [node name="PumpkinButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("6_7v2ui")
-vegetable = 2
+vegetable = 3
 iconImage = ExtResource("5_y8ful")
 
 [node name="TomatoeButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("8_y8ful")
-vegetable = 3
+vegetable = 4
 iconImage = ExtResource("6_4nx6j")
 
 [node name="BrocolliButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("10_y8ful")
-vegetable = 4
+vegetable = 5
 iconImage = ExtResource("7_cyo8i")

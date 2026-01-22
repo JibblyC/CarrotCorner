@@ -11,6 +11,7 @@ func _unhandled_input(event) :
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		Globals.currentSeedSelection = Globals.VEGETABLES.NONE
 		cursor.change_cursor_sprite(Globals.CURSOR_STATE.IDLE)
+		SignalBus.release_focus_button.emit()
 	
 func _on_bird_spawn_timer_timeout() -> void:
 	if Globals.plantedGround.size() > 0 :

@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cbkdocbbveo0t" path="res://assets/vegetables/broccoli/Broc.png" id="5_g2muy"]
 
 [node name="broccoli" instance=ExtResource("1_6p1ki")]
-seedGrowTime = 4
-saplingGrowTime = 4
+seedGrowTime = 10
+saplingGrowTime = 10
 seedTexture = ExtResource("2_wwqmx")
 halfGrowTexture = ExtResource("3_yu818")
 fullGrowTexture = ExtResource("4_ooftf")
-goldValue = 10
-goldCost = 6
+goldValue = 12
+goldCost = 5
 
 [node name="HarvestSprite" parent="." index="3"]
 texture = ExtResource("5_g2muy")

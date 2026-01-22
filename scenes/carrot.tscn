@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dpgerx1ufpxh7" path="res://assets/vegetables/carrot/carrot.png" id="5_o2vgq"]
 
 [node name="carrot" instance=ExtResource("1_x0dx6")]
-seedGrowTime = 1
-saplingGrowTime = 1
+seedGrowTime = 2
+saplingGrowTime = 2
 seedTexture = ExtResource("2_x0dx6")
 halfGrowTexture = ExtResource("3_o2vgq")
 fullGrowTexture = ExtResource("4_wql3v")

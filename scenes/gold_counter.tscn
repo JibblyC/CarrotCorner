@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://djufr2nq72uc6"]
+[gd_scene load_steps=5 format=3 uid="uid://djufr2nq72uc6"]
 
 [ext_resource type="Script" uid="uid://nmw20mbrh4q6" path="res://scripts/gold_counter.gd" id="1_4ch30"]
 [ext_resource type="Texture2D" uid="uid://cuoii5fmlbueu" path="res://assets/GoldGui.png" id="2_7eso2"]
 [ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eso2"]
+texture = ExtResource("2_7eso2")
 
 [node name="GoldCounter" type="Control"]
 layout_mode = 3
@@ -14,23 +17,38 @@ script = ExtResource("1_4ch30")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 16.0
+offset_right = 40.0
 offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7eso2")
 
-[node name="HSplitContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_direction = 2
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 0
+theme_override_constants/minimum_grab_thickness = 0
+dragging_enabled = false
 
-[node name="CoinImg" type="TextureRect" parent="PanelContainer/HSplitContainer"]
-custom_minimum_size = Vector2(8, 8)
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-texture = ExtResource("2_7eso2")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = -7
 
-[node name="GoldLabel" type="Label" parent="PanelContainer/HSplitContainer"]
+[node name="wordtotal" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
+text = "Total"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_bottom = 3
+
+[node name="total_value" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "100"
 
 [node name="NotEnoughGoldAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7eso2")

@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://47civb05tacu" path="res://assets/vegetables/potatoe/potatoe.png" id="5_jf6kr"]
 
 [node name="potatoe" instance=ExtResource("1_fk81d")]
-seedGrowTime = 2
-saplingGrowTime = 2
+seedGrowTime = 5
+saplingGrowTime = 5
 seedTexture = ExtResource("2_u7xut")
 halfGrowTexture = ExtResource("3_jf6kr")
 fullGrowTexture = ExtResource("4_qqhea")

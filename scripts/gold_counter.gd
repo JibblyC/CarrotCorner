@@ -14,10 +14,9 @@ func _process(_delta: float) -> void:
 func _ready():
 	# Save the initial position (so we can return to it)
 	original_position = position
-	goldLabel = $PanelContainer/HSplitContainer/GoldLabel
+	goldLabel = $PanelContainer/VSplitContainer/MarginContainer2/total_value
 
 func not_enough_gold_animation():
-	
 	$NotEnoughGoldAudio.play();
 	goldLabel.add_theme_color_override("font_color", Color(1, 0, 0));
 

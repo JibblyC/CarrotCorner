@@ -2,10 +2,15 @@ extends Node
 
 @export var bird_scene: PackedScene
 @onready var cursor = $Cursor
+@onready var birdSpawnTimer = $BirdSpawnTimer;
 
 func _ready() -> void:
 	for child in $OutOfBoundsLocations.get_children():
 		Globals.outOfBoundsGround[child.get_instance_id()] = child;
+		
+	if Globals.birdSpawnWaitTime != 0 :
+		birdSpawnTimer.start()
+		birdSpawnTimer.wait_time = Globals.birdSpawnWaitTime;
 		
 func _unhandled_input(event) :
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:

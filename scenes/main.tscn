@@ -2021,7 +2021,6 @@ offset_bottom = 32.0
 
 [node name="BirdSpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="BirdSpawn" type="Path2D" parent="."]
 curve = SubResource("Curve2D_tbgi4")

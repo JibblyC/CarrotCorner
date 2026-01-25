@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4o0ct3l818f8"]
+
+[ext_resource type="Script" uid="uid://cwihqic35ovf6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://dqahq5hbrb1oa" path="res://scenes/main.tscn" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(0.9377584, 0.35368812, 0.6413622, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+mainGameScene = ExtResource("2_ekxnf")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+dragger_visibility = 2
+
+[node name="StartGame" type="Button" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+text = "Start"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BirdSliderLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Bird Count"
+
+[node name="BirdSlider" type="HSlider" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 3.0
+tick_count = 4
+
+[node name="BirdValueLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartingGoldLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Starting Gold"
+
+[node name="StartingGoldSlider" type="HSlider" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+min_value = 10.0
+max_value = 50.0
+step = 10.0
+value = 10.0
+tick_count = 5
+
+[node name="StartingGoldValueLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[connection signal="pressed" from="VSplitContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="drag_ended" from="VSplitContainer/HBoxContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_drag_ended"]
+[connection signal="drag_ended" from="VSplitContainer/HBoxContainer/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_drag_ended"]

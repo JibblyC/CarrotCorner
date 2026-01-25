@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://djufr2nq72uc6"]
+[gd_scene load_steps=6 format=3 uid="uid://djufr2nq72uc6"]
 
 [ext_resource type="Script" uid="uid://nmw20mbrh4q6" path="res://scripts/gold_counter.gd" id="1_4ch30"]
 [ext_resource type="Texture2D" uid="uid://cuoii5fmlbueu" path="res://assets/GoldGui.png" id="2_7eso2"]
 [ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
+[ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_jb4gt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eso2"]
 texture = ExtResource("2_7eso2")
@@ -17,7 +18,7 @@ script = ExtResource("1_4ch30")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 48.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7eso2")
 
@@ -29,24 +30,26 @@ dragging_enabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = -7
+theme_override_constants/margin_bottom = -5
 
 [node name="wordtotal" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jb4gt")
 theme_override_font_sizes/font_size = 8
 text = "Total"
 horizontal_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 14
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_bottom = 3
 
 [node name="total_value" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_jb4gt")
 theme_override_font_sizes/font_size = 8
 text = "100"
 

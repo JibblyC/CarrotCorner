@@ -2,9 +2,12 @@ extends Node
 
 var currentSeedSelection : VEGETABLES;
 var currentSeedSelectionSprite : Sprite2D;
-var totalGold : int = 100;
+var totalGold : int = 10;
 var goldSpent : int = 0;
+
+#Bird Related Vars
 var birdsPunched : int = 0;
+var birdSpawnWaitTime : float = 0;
 
 enum VEGETABLES {NONE,CARROT,POTATOE,PUMPKIN,TOMATOE,BROCCOLI};
 

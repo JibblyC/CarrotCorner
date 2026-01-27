@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cvnm73kna0l1a"]
+[gd_resource type="TileSet" format=3 uid="uid://cvnm73kna0l1a"]
 
 [ext_resource type="PackedScene" uid="uid://c3bgdxesfokge" path="res://scenes/ground.tscn" id="1_tbf4e"]
 [ext_resource type="Texture2D" uid="uid://ddsparhv3n07f" path="res://assets/roguelikeSheet_transparent.png" id="2_d26kf"]

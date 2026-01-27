@@ -1,22 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4o0ct3l818f8"]
+[gd_scene format=3 uid="uid://c4o0ct3l818f8"]
 
 [ext_resource type="Script" uid="uid://cwihqic35ovf6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://djonhi38vjyp" path="res://themes/Seed_Menu.tres" id="1_wu84c"]
 [ext_resource type="PackedScene" uid="uid://dqahq5hbrb1oa" path="res://scenes/main.tscn" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenuBackground.png" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://c0i5wfc6dll2a" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png" id="5_oa1go"]
+[ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/singleCoin1.png" id="6_rtw2f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
-bg_color = Color(0.9377584, 0.35368812, 0.6413622, 1)
-
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=806335344]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_wu84c")
 script = ExtResource("1_l6cm7")
 mainGameScene = ExtResource("2_ekxnf")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1479499702]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8ln24")
+stretch_mode = 6
+
+[node name="VSplitContainer" type="VBoxContainer" parent="." unique_id=934442792]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,58 +38,106 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
-dragger_visibility = 2
 
-[node name="StartGame" type="Button" parent="VSplitContainer"]
+[node name="TitleContainer" type="MarginContainer" parent="VSplitContainer" unique_id=945451133]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-text = "Start"
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer"]
+[node name="SettingsContainer" type="MarginContainer" parent="VSplitContainer" unique_id=1737301104]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/SettingsContainer" unique_id=1540189913]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BirdSliderLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Bird Count"
-
-[node name="BirdSlider" type="HSlider" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer" unique_id=332756687]
 layout_mode = 2
 size_flags_horizontal = 3
-max_value = 3.0
-tick_count = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 10
 
-[node name="BirdValueLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer" unique_id=642030017]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
-[node name="StartingGoldLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+[node name="BirdValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=542700428]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
-text = "Starting Gold"
+theme = ExtResource("1_wu84c")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="StartingGoldSlider" type="HSlider" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+[node name="BirdSlider" type="HSlider" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1261476537]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+theme_override_constants/center_grabber = -1
+theme_override_constants/grabber_offset = -1
+theme_override_constants/tick_offset = 0
+theme_override_icons/grabber = ExtResource("5_oa1go")
+theme_override_icons/grabber_highlight = ExtResource("5_oa1go")
+theme_override_icons/grabber_disabled = ExtResource("5_oa1go")
+max_value = 3.0
+tick_count = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer" unique_id=1685273400]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2" unique_id=1742902660]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartingGoldValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=294737933]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_wu84c")
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+
+[node name="StartingGoldSlider" type="HSlider" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=2136165236]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/center_grabber = 0
+theme_override_constants/tick_offset = 0
+theme_override_icons/grabber = ExtResource("6_rtw2f")
+theme_override_icons/grabber_highlight = ExtResource("6_rtw2f")
 min_value = 10.0
 max_value = 50.0
 step = 10.0
 value = 10.0
 tick_count = 5
 
-[node name="StartingGoldValueLabel" type="Label" parent="VSplitContainer/HBoxContainer/VBoxContainer2"]
+[node name="StartButtonContainer" type="MarginContainer" parent="VSplitContainer" unique_id=101522194]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 5
 
-[connection signal="pressed" from="VSplitContainer/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="drag_ended" from="VSplitContainer/HBoxContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_drag_ended"]
-[connection signal="drag_ended" from="VSplitContainer/HBoxContainer/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_drag_ended"]
+[node name="StartGame" type="Button" parent="VSplitContainer/StartButtonContainer" unique_id=2081972847]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_wu84c")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "Start"
+vertical_icon_alignment = 0
+
+[connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_value_changed"]
+[connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_value_changed"]
+[connection signal="pressed" from="VSplitContainer/StartButtonContainer/StartGame" to="." method="_on_start_game_pressed"]

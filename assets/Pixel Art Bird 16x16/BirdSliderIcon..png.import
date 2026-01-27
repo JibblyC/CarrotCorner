@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpn0lgcb15hwl"
-path="res://.godot/imported/MenuBackgroundHighlight.png-6e4fd17d377d3c0a39071df91516d684.ctex"
+uid="uid://c0i5wfc6dll2a"
+path="res://.godot/imported/BirdSliderIcon..png-f6cd9b5b9d32bfe288c8101ae79475d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MenuBackgroundHighlight.png"
-dest_files=["res://.godot/imported/MenuBackgroundHighlight.png-6e4fd17d377d3c0a39071df91516d684.ctex"]
+source_file="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png"
+dest_files=["res://.godot/imported/BirdSliderIcon..png-f6cd9b5b9d32bfe288c8101ae79475d5.ctex"]
 
 [params]
 

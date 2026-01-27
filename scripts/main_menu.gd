@@ -2,11 +2,11 @@ extends Control
 
 @export var mainGameScene : PackedScene;
 
-@onready var birdValueLabel = $VSplitContainer/HBoxContainer/VBoxContainer/BirdValueLabel
-@onready var birdSlider = $VSplitContainer/HBoxContainer/VBoxContainer/BirdSlider
+@onready var birdValueLabel = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdValueLabel
+@onready var birdSlider = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider
 
-@onready var startingGoldValueLabel = $VSplitContainer/HBoxContainer/VBoxContainer2/StartingGoldValueLabel
-@onready var startingGoldSlider = $VSplitContainer/HBoxContainer/VBoxContainer2/StartingGoldSlider
+@onready var startingGoldValueLabel = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldValueLabel
+@onready var startingGoldSlider = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldSlider
 
 
 func _ready() -> void:
@@ -17,22 +17,18 @@ func _ready() -> void:
 
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_packed(mainGameScene)
-	
-	
-func _on_bird_slider_drag_ended(value_changed: bool) -> void:
-	if value_changed :
-		_set_bird_value_label()
-		Globals.birdSpawnWaitTime = birdSlider.value
+		
 		
 func _set_bird_value_label() -> void :
-	birdValueLabel.text =  "Bird Count : " + str(birdSlider.value)
+	birdValueLabel.text =  "Bird Count : " + str(int(birdSlider.value))
 	
 func _set_starting_gold_label() -> void :
-	startingGoldValueLabel.text = "Starting Gold : " + str(startingGoldSlider.value)
-	
+	startingGoldValueLabel.text = "Gold : " + str(int(startingGoldSlider.value))
+		
+func _on_bird_slider_value_changed(value: float) -> void:
+	_set_bird_value_label()
+	Globals.birdSpawnWaitTime = birdSlider.value
 
-func _on_starting_gold_slider_drag_ended(value_changed: bool) -> void:
-	if value_changed :
+func _on_starting_gold_slider_value_changed(value: float) -> void:
 		_set_starting_gold_label()
 		Globals.totalGold = startingGoldSlider.value;
-		

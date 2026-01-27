@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuoii5fmlbueu"
-path="res://.godot/imported/GoldGui.png-bb4c3df0640463e4bfe3371a8d077982.ctex"
+uid="uid://d3lvs2tdtbcuy"
+path="res://.godot/imported/MainMenuBackground.png-30ec5bdf5da2bb922bfa0ea75b846d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GoldGui.png"
-dest_files=["res://.godot/imported/GoldGui.png-bb4c3df0640463e4bfe3371a8d077982.ctex"]
+source_file="res://assets/Menus/MainMenuBackground.png"
+dest_files=["res://.godot/imported/MainMenuBackground.png-30ec5bdf5da2bb922bfa0ea75b846d4c.ctex"]
 
 [params]
 

@@ -6,7 +6,9 @@
 [ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenuBackground.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c0i5wfc6dll2a" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png" id="5_oa1go"]
+[ext_resource type="Texture2D" uid="uid://cw4r76yh3it1o" path="res://assets/Menus/CarritCorner_Dropdown.png" id="5_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/singleCoin1.png" id="6_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dulgtm1g88bc" path="res://assets/Menus/StartButton.png" id="9_jk1qb"]
 
 [node name="MainMenu" type="Control" unique_id=806335344]
 layout_mode = 3
@@ -43,6 +45,11 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/TitleContainer" unique_id=1708019987]
+layout_mode = 2
+texture = ExtResource("5_tbmy8")
+stretch_mode = 3
+
 [node name="SettingsContainer" type="MarginContainer" parent="VSplitContainer" unique_id=1737301104]
 layout_mode = 2
 size_flags_vertical = 3
@@ -68,7 +75,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("1_wu84c")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -100,7 +107,7 @@ layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_wu84c")
 theme_override_fonts/font = ExtResource("3_bqqt6")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 
 [node name="StartingGoldSlider" type="HSlider" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=2136165236]
@@ -122,21 +129,13 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = -5
+theme_override_constants/margin_bottom = 9
 
-[node name="StartGame" type="Button" parent="VSplitContainer/StartButtonContainer" unique_id=2081972847]
-custom_minimum_size = Vector2(100, 0)
+[node name="StartGame" type="TextureButton" parent="VSplitContainer/StartButtonContainer" unique_id=198625774]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_wu84c")
-theme_override_constants/outline_size = 0
-theme_override_font_sizes/font_size = 16
-text = "Start"
-vertical_icon_alignment = 0
+texture_normal = ExtResource("9_jk1qb")
 
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_value_changed"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_value_changed"]

@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://djufr2nq72uc6"]
+[gd_scene format=3 uid="uid://djufr2nq72uc6"]
 
 [ext_resource type="Script" uid="uid://nmw20mbrh4q6" path="res://scripts/gold_counter.gd" id="1_4ch30"]
-[ext_resource type="Texture2D" uid="uid://cuoii5fmlbueu" path="res://assets/GoldGui.png" id="2_7eso2"]
+[ext_resource type="Texture2D" uid="uid://cuoii5fmlbueu" path="res://assets/Menus/GoldGui.png" id="2_7eso2"]
 [ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
 [ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_jb4gt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eso2"]
 texture = ExtResource("2_7eso2")
 
-[node name="GoldCounter" type="Control"]
+[node name="GoldCounter" type="Control" unique_id=1589313716]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -16,42 +16,42 @@ anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_4ch30")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1193113446]
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 32.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_7eso2")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer" unique_id=466440466]
 layout_mode = 2
 theme_override_constants/separation = 0
 theme_override_constants/minimum_grab_thickness = 0
 dragging_enabled = false
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VSplitContainer" unique_id=1325398936]
 layout_mode = 2
 theme_override_constants/margin_left = 18
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = -5
 
-[node name="wordtotal" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer"]
+[node name="wordtotal" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer" unique_id=2106620072]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jb4gt")
 theme_override_font_sizes/font_size = 8
 text = "Total"
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VSplitContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VSplitContainer" unique_id=1866679069]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_bottom = 3
 
-[node name="total_value" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer2"]
+[node name="total_value" type="Label" parent="PanelContainer/VSplitContainer/MarginContainer2" unique_id=1124550332]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_jb4gt")
 theme_override_font_sizes/font_size = 8
 text = "100"
 
-[node name="NotEnoughGoldAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="NotEnoughGoldAudio" type="AudioStreamPlayer2D" parent="." unique_id=1013330451]
 stream = ExtResource("3_7eso2")

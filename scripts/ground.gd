@@ -5,7 +5,6 @@ class_name ground
 var planted :bool = false;
 var plantedVeg;
 var isBirdOnPlant : bool = false;
-@onready var cursor = $"../../Cursor"
 @onready var hilightBorder = Sprite2D.new()
 
 var grown_shader: Shader = preload("res://assets/shaders/outline.gdshader")

@@ -2,7 +2,7 @@ extends Control
 
 class_name goldCounter
 
-var original_position  # stores the node's start position
+var original_position
 
 var goldLabel;
 

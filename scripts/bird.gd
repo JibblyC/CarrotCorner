@@ -57,6 +57,8 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		health -= 1;
 		$PunchParticles.restart()
 		if(health <= 0):
+			if(targetGround.plantedVeg.is_plant_healthy()):
+				Globals.plantedGround[plantedGround.plantedVeg.get_instance_id()] = plantedGround;
 			fly_away()
 	
 		
@@ -70,7 +72,6 @@ func fly_away() -> void :
 	change_state(STATES.FLYING)
 	clickable = false
 	Globals.birdsPunched += 1;
-	
 			
 		
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

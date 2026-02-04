@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3bgdxesfokge"]
+[gd_scene format=3 uid="uid://c3bgdxesfokge"]
 
 [ext_resource type="Script" uid="uid://c1ve4e0esnf6r" path="res://scripts/ground.gd" id="1_mi8v4"]
-[ext_resource type="Texture2D" uid="uid://ew5kudnvlbx0" path="res://assets/plantGroundBorder.png" id="2_mi8v4"]
+[ext_resource type="Texture2D" uid="uid://ew5kudnvlbx0" path="res://assets/vegetables/plantGroundBorder.png" id="2_mi8v4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
 size = Vector2(16, 16)
@@ -22,18 +22,18 @@ gravity = Vector3(0, 90, 0)
 scale_curve = SubResource("CurveTexture_ndevg")
 color = Color(0.6187641, 0.40543687, 0.2666634, 0.8862745)
 
-[node name="Ground" type="Node2D"]
+[node name="Ground" type="Node2D" unique_id=1505124303]
 script = ExtResource("1_mi8v4")
 
-[node name="GroundSprite" type="Sprite2D" parent="."]
+[node name="GroundSprite" type="Sprite2D" parent="." unique_id=217735580]
 texture = ExtResource("2_mi8v4")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=951645575]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1134365308]
 shape = SubResource("RectangleShape2D_pybca")
 
-[node name="PlantSeedParticles" type="GPUParticles2D" parent="."]
+[node name="PlantSeedParticles" type="GPUParticles2D" parent="." unique_id=404180649]
 emitting = false
 amount = 10
 lifetime = 0.48

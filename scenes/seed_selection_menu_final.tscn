@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd63gthibakdw"]
+[gd_scene format=3 uid="uid://cd63gthibakdw"]
 
 [ext_resource type="PackedScene" uid="uid://u1lerhrhpl6c" path="res://scenes/SeedSelectionButton.tscn" id="1_wh56q"]
 [ext_resource type="Texture2D" uid="uid://bk0b0enmuwusd" path="res://assets/vegetables/carrot/CarrotToolTip.png" id="2_425q4"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ca4lghuks76p0" path="res://assets/vegetables/tomatoe/TomatoeToolTip.png" id="8_y8ful"]
 [ext_resource type="Texture2D" uid="uid://co18u7udt2va0" path="res://assets/vegetables/broccoli/BrocolliToolTip.png" id="10_y8ful"]
 
-[node name="SeedSelection" type="Control"]
+[node name="SeedSelection" type="Control" unique_id=1103712840]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,40 +20,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2106280314]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CarrotButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
+[node name="CarrotButton" parent="VBoxContainer" unique_id=1358107042 instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("2_425q4")
 vegetable = 1
 iconImage = ExtResource("2_a4qh3")
 
-[node name="PotatoeButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
+[node name="PotatoeButton" parent="VBoxContainer" unique_id=482936275 instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("4_425q4")
 vegetable = 2
 iconImage = ExtResource("4_7v2ui")
 
-[node name="PumpkinButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
+[node name="PumpkinButton" parent="VBoxContainer" unique_id=742992189 instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("6_7v2ui")
 vegetable = 3
 iconImage = ExtResource("5_y8ful")
 
-[node name="TomatoeButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
+[node name="TomatoeButton" parent="VBoxContainer" unique_id=141887065 instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("8_y8ful")
 vegetable = 4
 iconImage = ExtResource("6_4nx6j")
 
-[node name="BrocolliButton" parent="VBoxContainer" instance=ExtResource("1_wh56q")]
+[node name="BrocolliButton" parent="VBoxContainer" unique_id=203589536 instance=ExtResource("1_wh56q")]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 toolTipTexture = ExtResource("10_y8ful")

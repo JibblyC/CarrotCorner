@@ -7,8 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenuBackground.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c0i5wfc6dll2a" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cw4r76yh3it1o" path="res://assets/Menus/CarritCorner_Dropdown.png" id="5_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/singleCoin1.png" id="6_rtw2f"]
+[ext_resource type="Script" uid="uid://cnt82i3ewybng" path="res://scripts/main_carrot_corner_texture.gd" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/Menus/singleCoin1.png" id="6_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://c3smv6mls2qob" path="res://assets/Menus/Selector_Background.png" id="7_1ajci"]
+[ext_resource type="Texture2D" uid="uid://hk1in165mvoe" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon_Selected.png" id="8_flqon"]
 [ext_resource type="Texture2D" uid="uid://dulgtm1g88bc" path="res://assets/Menus/StartButton.png" id="9_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cljpn8ht0g1hv" path="res://assets/Menus/StartButton_highlight.png" id="10_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://b5v4iijcn70ya" path="res://assets/Menus/singleCoin1_highlight.png" id="11_rcqid"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
+texture = ExtResource("7_1ajci")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7b55j"]
+texture = ExtResource("7_1ajci")
 
 [node name="MainMenu" type="Control" unique_id=806335344]
 layout_mode = 3
@@ -45,10 +56,16 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="VSplitContainer/TitleContainer" unique_id=1708019987]
+[node name="MainCarrotCornerTexture" type="TextureRect" parent="VSplitContainer/TitleContainer" unique_id=1708019987]
 layout_mode = 2
 texture = ExtResource("5_tbmy8")
 stretch_mode = 3
+script = ExtResource("6_lgwnu")
+
+[node name="TitleDropDownTimer" type="Timer" parent="VSplitContainer/TitleContainer" unique_id=687047111]
+wait_time = 0.5
+one_shot = true
+autostart = true
 
 [node name="SettingsContainer" type="MarginContainer" parent="VSplitContainer" unique_id=1737301104]
 layout_mode = 2
@@ -70,7 +87,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="BirdValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=542700428]
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=2077859937]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_1ajci")
+
+[node name="BirdValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=542700428]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -87,7 +109,7 @@ theme_override_constants/center_grabber = -1
 theme_override_constants/grabber_offset = -1
 theme_override_constants/tick_offset = 0
 theme_override_icons/grabber = ExtResource("5_oa1go")
-theme_override_icons/grabber_highlight = ExtResource("5_oa1go")
+theme_override_icons/grabber_highlight = ExtResource("8_flqon")
 theme_override_icons/grabber_disabled = ExtResource("5_oa1go")
 max_value = 3.0
 tick_count = 4
@@ -102,7 +124,12 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StartingGoldValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=294737933]
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2" unique_id=1948709283]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7b55j")
+
+[node name="StartingGoldValueLabel" type="Label" parent="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/PanelContainer" unique_id=294737933]
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_wu84c")
@@ -117,7 +144,7 @@ size_flags_vertical = 2
 theme_override_constants/center_grabber = 0
 theme_override_constants/tick_offset = 0
 theme_override_icons/grabber = ExtResource("6_rtw2f")
-theme_override_icons/grabber_highlight = ExtResource("6_rtw2f")
+theme_override_icons/grabber_highlight = ExtResource("11_rcqid")
 min_value = 10.0
 max_value = 50.0
 step = 10.0
@@ -136,7 +163,9 @@ theme_override_constants/margin_bottom = 9
 [node name="StartGame" type="TextureButton" parent="VSplitContainer/StartButtonContainer" unique_id=198625774]
 layout_mode = 2
 texture_normal = ExtResource("9_jk1qb")
+texture_hover = ExtResource("10_5dd4i")
 
+[connection signal="timeout" from="VSplitContainer/TitleContainer/TitleDropDownTimer" to="VSplitContainer/TitleContainer/MainCarrotCornerTexture" method="_on_timer_timeout"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_value_changed"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_value_changed"]
 [connection signal="pressed" from="VSplitContainer/StartButtonContainer/StartGame" to="." method="_on_start_game_pressed"]

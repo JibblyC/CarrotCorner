@@ -1,7 +1,6 @@
 extends Node
 
 var currentSeedSelection : VEGETABLES;
-var currentSeedSelectionSprite : Sprite2D;
 var totalGold : int = 10;
 var goldSpent : int = 0;
 
@@ -25,11 +24,18 @@ var outOfBoundsGround = {};
 enum VEG_GOLD_BUY_COST {DEFAULT, CARROT = 1, POTATOE = 2, PUMPKIN = 3, TOMATOE = 4, BROCCOLI = 5 }
 enum VEG_GOLD_SELL_VALUE {DEFAULT, CARROT = 2, POTATOE = 4, PUMPKIN = 6, TOMATOE = 8, BROCCOLI = 12 }
 
-enum VEG_SEED_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 5, PUMPKIN = 7, TOMATOE = 8, BROCCOLI = 10 }
-enum VEG_SAPLING_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 5, PUMPKIN = 7, TOMATOE = 8, BROCCOLI = 10 }
+enum VEG_SEED_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 3, PUMPKIN = 4, TOMATOE = 5, BROCCOLI = 6 }
+enum VEG_SAPLING_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 3, PUMPKIN = 4, TOMATOE = 5, BROCCOLI = 6 }
 
 
 enum CURSOR_STATE { IDLE, HOLD , RELEASE }
 		
 func check_if_enough_gold(cost : int) -> bool :
 	return totalGold - cost >= 0;
+	
+func clear_global_values() -> void :
+	currentSeedSelection = VEGETABLES.NONE
+	totalGold = 0;
+	goldSpent = 0;
+	birdsPunched = 0;
+	birdSpawnWaitTime = 0;

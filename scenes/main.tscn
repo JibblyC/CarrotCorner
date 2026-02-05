@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djufr2nq72uc6" path="res://scenes/gold_counter.tscn" id="4_tefeu"]
 [ext_resource type="TileSet" uid="uid://cvnm73kna0l1a" path="res://assets/main.tres" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://cd63gthibakdw" path="res://scenes/seed_selection_menu_final.tscn" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://yitdcto43tro" path="res://scenes/pause_menu.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://c3bgdxesfokge" path="res://scenes/ground.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://by1elj6ufj5uq" path="res://scenes/cursor.tscn" id="8_tipki"]
 
@@ -2018,6 +2019,9 @@ size_flags_vertical = 8
 offset_left = 293.0
 offset_top = 56.0
 offset_bottom = 32.0
+
+[node name="PauseMenu" parent="UI" unique_id=991283586 instance=ExtResource("7_85g3d")]
+visible = false
 
 [node name="BirdSpawnTimer" type="Timer" parent="." unique_id=1377259501]
 wait_time = 3.0

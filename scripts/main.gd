@@ -4,6 +4,8 @@ extends Node
 @onready var cursor = $Cursor
 @onready var birdSpawnTimer = $BirdSpawnTimer;
 
+@onready var pauseMenu = $UI/PauseMenu;
+
 func _ready() -> void:
 	for child in $OutOfBoundsLocations.get_children():
 		Globals.outOfBoundsGround[child.get_instance_id()] = child;
@@ -13,10 +15,11 @@ func _ready() -> void:
 		birdSpawnTimer.wait_time = Globals.birdSpawnWaitTime;
 		
 func _unhandled_input(event) :
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+	if event.is_action_pressed("cancel_seed_selection"):
 		Globals.currentSeedSelection = Globals.VEGETABLES.NONE
 		cursor.change_cursor_sprite(Globals.CURSOR_STATE.IDLE)
 		SignalBus.release_focus_button.emit()
+		
 	
 func _on_bird_spawn_timer_timeout() -> void:
 	if Globals.plantedGround.size() > 0 :
@@ -29,3 +32,8 @@ func _on_bird_spawn_timer_timeout() -> void:
 		spawned_bird.targetGround = Globals.plantedGround[random_key]
 		Globals.plantedGround.erase(random_key)
 		add_child(spawned_bird)
+		
+		
+
+	
+	

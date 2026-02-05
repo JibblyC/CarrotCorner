@@ -4,8 +4,6 @@ extends Node
 @onready var cursor = $Cursor
 @onready var birdSpawnTimer = $BirdSpawnTimer;
 
-@onready var pauseMenu = $UI/PauseMenu;
-
 func _ready() -> void:
 	for child in $OutOfBoundsLocations.get_children():
 		Globals.outOfBoundsGround[child.get_instance_id()] = child;

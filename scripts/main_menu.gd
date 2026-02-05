@@ -1,7 +1,5 @@
 extends Control
 
-@export var mainGameScene : PackedScene;
-
 @onready var birdValueLabel = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/PanelContainer/BirdValueLabel
 @onready var birdSlider = $VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider
 
@@ -42,4 +40,4 @@ func _on_starting_gold_slider_value_changed(value: float) -> void:
 	Globals.totalGold = startingGoldSlider.value;
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_packed(mainGameScene)
+	get_tree().change_scene_to_file("res://scenes/main.tscn")

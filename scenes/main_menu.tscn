@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cwihqic35ovf6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Theme" uid="uid://djonhi38vjyp" path="res://themes/Seed_Menu.tres" id="1_wu84c"]
-[ext_resource type="PackedScene" uid="uid://dqahq5hbrb1oa" path="res://scenes/main.tscn" id="2_ekxnf"]
 [ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenuBackground.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c0i5wfc6dll2a" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png" id="5_oa1go"]
@@ -30,7 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_wu84c")
 script = ExtResource("1_l6cm7")
-mainGameScene = ExtResource("2_ekxnf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1479499702]
 z_index = -1

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://ctqwc4r4ystr6" path="res://scripts/pause_menu.gd" id="1_myx47"]
 [ext_resource type="Texture2D" uid="uid://c3smv6mls2qob" path="res://assets/Menus/Selector_Background.png" id="1_n87rw"]
-[ext_resource type="PackedScene" uid="uid://c4o0ct3l818f8" path="res://scenes/main_menu.tscn" id="2_kukqi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
 bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.6431373)
@@ -15,7 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_myx47")
-mainMenu = ExtResource("2_kukqi")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=946097613]
 layout_mode = 1

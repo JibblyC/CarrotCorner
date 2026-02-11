@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfbxtj8vwce1t"]
+[gd_scene format=3 uid="uid://bfbxtj8vwce1t"]
 
 [ext_resource type="Script" uid="uid://caqvlms517528" path="res://scripts/gold_coin.gd" id="1_m8xws"]
-[ext_resource type="Texture2D" uid="uid://cxvo4dra8a7g1" path="res://assets/coin4_16x16.png" id="1_n8s33"]
+[ext_resource type="Texture2D" uid="uid://cxvo4dra8a7g1" path="res://assets/Menus/coin4_16x16.png" id="1_n8s33"]
 [ext_resource type="AudioStream" uid="uid://da3w8vrhcppij" path="res://assets/Audio/Retro PickUp Coin 04.wav" id="3_cwpwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8xws"]
@@ -75,16 +75,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="GoldCoin" type="Node2D"]
+[node name="GoldCoin" type="Node2D" unique_id=982366279]
 script = ExtResource("1_m8xws")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1541897035]
 sprite_frames = SubResource("SpriteFrames_fpruu")
 animation = &"GetCoin"
 frame = 8
 frame_progress = 1.0
 
-[node name="CoinPickUpAudio" type="AudioStreamPlayer2D" parent="."]
+[node name="CoinPickUpAudio" type="AudioStreamPlayer2D" parent="." unique_id=382744056]
 stream = ExtResource("3_cwpwy")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

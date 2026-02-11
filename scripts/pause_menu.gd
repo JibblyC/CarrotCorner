@@ -13,3 +13,5 @@ func _on_main_menu_pressed() -> void:
 	Globals.clear_global_values()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	
+func _on_end_game_pressed() -> void:
+	SignalBus.game_ended.emit();

@@ -1,10 +1,15 @@
 extends Node
 
-@warning_ignore("unused_signal")
+@warning_ignore_start("unused_signal")
+
 signal bird_clicked(bird_location);
 
-@warning_ignore("unused_signal")
-signal seed_selected(vegetable);
+signal seed_selected();
 
-@warning_ignore("unused_signal")
 signal release_focus_button(vegetable);
+
+signal change_cursor_to_idle();
+
+signal gold_change();
+
+signal game_ended()

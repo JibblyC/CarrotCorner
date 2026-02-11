@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck77nnwb0pk0i"]
+[gd_scene format=3 uid="uid://ck77nnwb0pk0i"]
 
 [ext_resource type="Script" uid="uid://cvi7jl18no5os" path="res://scripts/vegetable.gd" id="1_wj4aq"]
 
@@ -78,28 +78,26 @@ func _process(_delta: float) -> void:
 	value = get_parent().currentHealth;
 "
 
-[node name="vegetable" type="Node2D"]
+[node name="vegetable" type="Node2D" unique_id=844802190]
 script = ExtResource("1_wj4aq")
 
-[node name="VegSprite" type="Sprite2D" parent="."]
+[node name="VegSprite" type="Sprite2D" parent="." unique_id=141290390]
 texture_filter = 1
 
-[node name="SeedTimer" type="Timer" parent="."]
+[node name="SeedTimer" type="Timer" parent="." unique_id=1693369256]
 one_shot = true
 autostart = true
 
-[node name="HalfGrownTimer" type="Timer" parent="."]
+[node name="HalfGrownTimer" type="Timer" parent="." unique_id=352789347]
 one_shot = true
 
-[node name="HarvestSprite" type="Sprite2D" parent="."]
+[node name="HarvestSprite" type="Sprite2D" parent="." unique_id=752702846]
 visible = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HarvestSprite"]
-libraries = {
-&"": SubResource("AnimationLibrary_6wlp8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HarvestSprite" unique_id=214162567]
+libraries/ = SubResource("AnimationLibrary_6wlp8")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1997073165]
 visible = false
 z_index = 1
 anchors_preset = 10

@@ -4,6 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	SignalBus.game_ended.connect(game_ended)
 	
 func _unhandled_input(event) :
 	if event.is_action_pressed("pause_menu_open_close"):
@@ -15,3 +16,6 @@ func togglePauseMenu() -> void :
 	if pause_menu:
 		get_tree().paused = !get_tree().paused
 		pause_menu.visible = get_tree().paused
+		
+func game_ended() -> void :
+	print("Game over")

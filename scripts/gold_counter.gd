@@ -5,16 +5,20 @@ class_name goldCounter
 var original_position
 
 var goldLabel;
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	goldLabel.text = str(Globals.totalGold);
 	
 
 func _ready():
 	# Save the initial position (so we can return to it)
 	original_position = position
 	goldLabel = $PanelContainer/VSplitContainer/MarginContainer2/total_value
+	goldLabel.text = str(Globals.currentGold);
+	SignalBus.gold_change.connect(change_gold_label)
+	
+func change_gold_label() -> void :
+	goldLabel.text = str(Globals.currentGold);
+	
+	if Globals.currentGold >= Globals.targetGold :
+		SignalBus.game_ended.emit();
 
 func not_enough_gold_animation():
 	$NotEnoughGoldAudio.play();

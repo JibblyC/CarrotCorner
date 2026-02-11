@@ -20,9 +20,10 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if not planted and Globals.currentSeedSelection != Globals.VEGETABLES.NONE:
 			plantedVeg = load(Globals.vegToScenePath[Globals.currentSeedSelection]).instantiate() as abstractVeg;
-			if(Globals.check_if_enough_gold(plantedVeg.goldCost)):
+			if(check_if_enough_gold(plantedVeg.goldCost)):
 				planted = true
-				Globals.totalGold -= plantedVeg.goldCost;
+				Globals.currentGold -= plantedVeg.goldCost;
+				SignalBus.gold_change.emit()
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
 				plantedVeg.vegetable_eaten.connect(reset_ground_status)
 				$PlantSeedParticles.emitting = true;
@@ -32,7 +33,8 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				
 		else:
 			if plantedVeg and plantedVeg.isFullyGrown and !plantedVeg.isHarvested and !isBirdOnPlant: 
-				Globals.totalGold += plantedVeg.goldValue;
+				Globals.currentGold += plantedVeg.goldValue;
+				SignalBus.gold_change.emit()
 				planted = false;
 				plantedVeg.vegetable_harvest_popup()
 				
@@ -42,6 +44,9 @@ func set_bird_planted(value: bool) -> void:
 func reset_ground_status() -> void :
 	planted = false;
 	isBirdOnPlant = false;
+	
+func check_if_enough_gold(cost : int) -> bool :
+	return Globals.currentGold - cost >= 0;
 				
 func _on_area_2d_mouse_entered() -> void:
 	add_child(hilightBorder)

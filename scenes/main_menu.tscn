@@ -3,16 +3,17 @@
 [ext_resource type="Script" uid="uid://cwihqic35ovf6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Theme" uid="uid://djonhi38vjyp" path="res://themes/Seed_Menu.tres" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_bqqt6"]
-[ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenuBackground.png" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://d3lvs2tdtbcuy" path="res://assets/Menus/MainMenu/MainMenuBackground.png" id="4_8ln24"]
 [ext_resource type="Texture2D" uid="uid://c0i5wfc6dll2a" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon..png" id="5_oa1go"]
 [ext_resource type="Texture2D" uid="uid://cw4r76yh3it1o" path="res://assets/Menus/CarritCorner_Dropdown.png" id="5_tbmy8"]
 [ext_resource type="Script" uid="uid://cnt82i3ewybng" path="res://scripts/main_carrot_corner_texture.gd" id="6_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://sqcs52qc3ud3" path="res://assets/Menus/singleCoin1.png" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://c3smv6mls2qob" path="res://assets/Menus/Selector_Background.png" id="7_1ajci"]
 [ext_resource type="Texture2D" uid="uid://hk1in165mvoe" path="res://assets/Pixel Art Bird 16x16/BirdSliderIcon_Selected.png" id="8_flqon"]
-[ext_resource type="Texture2D" uid="uid://dulgtm1g88bc" path="res://assets/Menus/StartButton.png" id="9_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://cljpn8ht0g1hv" path="res://assets/Menus/StartButton_highlight.png" id="10_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://dulgtm1g88bc" path="res://assets/Menus/MainMenu/StartButton.png" id="9_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cljpn8ht0g1hv" path="res://assets/Menus/MainMenu/StartButton_highlight.png" id="10_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://b5v4iijcn70ya" path="res://assets/Menus/singleCoin1_highlight.png" id="11_rcqid"]
+[ext_resource type="PackedScene" uid="uid://by1elj6ufj5uq" path="res://scenes/cursor.tscn" id="14_1ajci"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
 texture = ExtResource("7_1ajci")
@@ -162,6 +163,8 @@ theme_override_constants/margin_bottom = 9
 layout_mode = 2
 texture_normal = ExtResource("9_jk1qb")
 texture_hover = ExtResource("10_5dd4i")
+
+[node name="Cursor" parent="." unique_id=1445946177 instance=ExtResource("14_1ajci")]
 
 [connection signal="timeout" from="VSplitContainer/TitleContainer/TitleDropDownTimer" to="VSplitContainer/TitleContainer/MainCarrotCornerTexture" method="_on_timer_timeout"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_value_changed"]

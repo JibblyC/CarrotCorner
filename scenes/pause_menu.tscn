@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://yitdcto43tro"]
 
 [ext_resource type="Script" uid="uid://ctqwc4r4ystr6" path="res://scripts/pause_menu.gd" id="1_myx47"]
-[ext_resource type="Texture2D" uid="uid://c3smv6mls2qob" path="res://assets/Menus/Selector_Background.png" id="1_n87rw"]
+[ext_resource type="Texture2D" uid="uid://do52gr8exdkp1" path="res://assets/Menus/PauseMenu/Pause_menu_resume_game.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://dlxg4w65s8ub1" path="res://assets/Menus/PauseMenu/Pause_menu_resume_game_highlighted.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://c43gj00n4hatf" path="res://assets/Menus/PauseMenu/Pause_menu_end_game.png" id="4_1s2dm"]
+[ext_resource type="Texture2D" uid="uid://q5e6bkk6isj6" path="res://assets/Menus/PauseMenu/Pause_menu_end_game_highlight.png" id="5_88e76"]
+[ext_resource type="Texture2D" uid="uid://bmvjxp65xtreo" path="res://assets/Menus/PauseMenu/Pause_menu_main_menu.png" id="6_knqa7"]
+[ext_resource type="Texture2D" uid="uid://brijdjndqom0j" path="res://assets/Menus/PauseMenu/Pause_menu_main_menu_highlight.png" id="7_71k7c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahpa"]
 bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.6431373)
@@ -36,17 +41,25 @@ layout_mode = 2
 
 [node name="Resume" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1745907289]
 layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("1_n87rw")
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_5d2l8")
+texture_hover = ExtResource("3_7l7mv")
+
+[node name="End Game" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=199786121]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("4_1s2dm")
+texture_hover = ExtResource("5_88e76")
 
 [node name="MainMenu" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=128406528]
 layout_mode = 2
-size_flags_vertical = 3
-texture_normal = ExtResource("1_n87rw")
-
-[node name="TextureButton3" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=199786121]
-layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("6_knqa7")
+texture_hover = ExtResource("7_71k7c")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/End Game" to="." method="_on_end_game_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

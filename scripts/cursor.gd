@@ -11,9 +11,13 @@ func _ready():
 	change_cursor_sprite(Globals.CURSOR_STATE.IDLE);
 	SignalBus.bird_clicked.connect(play_punch_animation)
 	SignalBus.seed_selected.connect(cursor_sprite_hold)
+	SignalBus.change_cursor_to_idle.connect(cursor_sprite_idle)
 	
 func cursor_sprite_hold(_input : Globals.VEGETABLES) -> void:
 	change_cursor_sprite(Globals.CURSOR_STATE.HOLD)
+	
+func cursor_sprite_idle() -> void:
+	change_cursor_sprite(Globals.CURSOR_STATE.IDLE)
 
 	
 func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:

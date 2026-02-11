@@ -1,7 +1,8 @@
 extends Node
 
 var currentSeedSelection : VEGETABLES;
-var totalGold : int = 10;
+var currentGold : int = 10;
+var targetGold : int = 60;
 var goldSpent : int = 0;
 
 #Bird Related Vars
@@ -29,13 +30,12 @@ enum VEG_SAPLING_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 3, PUMPKIN = 4, 
 
 
 enum CURSOR_STATE { IDLE, HOLD , RELEASE }
-		
-func check_if_enough_gold(cost : int) -> bool :
-	return totalGold - cost >= 0;
 	
 func clear_global_values() -> void :
 	currentSeedSelection = VEGETABLES.NONE
-	totalGold = 0;
+	currentGold = 10;
 	goldSpent = 0;
 	birdsPunched = 0;
 	birdSpawnWaitTime = 0;
+	plantedGround = {};
+	SignalBus.change_cursor_to_idle.emit()

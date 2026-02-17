@@ -13,3 +13,5 @@ signal change_cursor_to_idle();
 signal gold_change();
 
 signal game_ended()
+
+signal main_loaded();

@@ -6,6 +6,7 @@ var planted :bool = false;
 var plantedVeg;
 var isBirdOnPlant : bool = false;
 @onready var hilightBorder = Sprite2D.new()
+var mouseHeldDown : bool = false;
 
 var grown_shader: Shader = preload("res://assets/shaders/outline.gdshader")
 
@@ -16,8 +17,10 @@ func _ready() -> void:
 	hilightBorder.material = shader_material
 	hilightBorder.z_index = z_index + 10
 	
+	#TODO -- CLICK and hold for plant / harvest - Much effort?
+	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		if not planted and Globals.currentSeedSelection != Globals.VEGETABLES.NONE:
 			plantedVeg = load(Globals.vegToScenePath[Globals.currentSeedSelection]).instantiate() as abstractVeg;
 			if(check_if_enough_gold(plantedVeg.goldCost)):
@@ -32,9 +35,9 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				$"../../UI/GoldCounter".not_enough_gold_animation();
 				
 		else:
-			if plantedVeg and plantedVeg.isFullyGrown and !plantedVeg.isHarvested and !isBirdOnPlant: 
+			if plantedVeg and plantedVeg.isFullyGrown and !plantedVeg.isHarvested and !isBirdOnPlant:
+				SignalBus.change_cursor_to_idle.emit()
 				Globals.currentGold += plantedVeg.goldValue;
-				SignalBus.gold_change.emit()
 				planted = false;
 				plantedVeg.vegetable_harvest_popup()
 				

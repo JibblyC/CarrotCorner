@@ -30,7 +30,7 @@ func _on_button_mouse_exited() -> void:
 func _on_button_pressed() -> void:
 	SignalBus.seed_selected.emit(vegetable);
 	Globals.currentSeedSelection = vegetable;
-	
+
 func _release_focus_on_button() -> void:
 	if($Button.has_focus()) :
 		$Button.release_focus()

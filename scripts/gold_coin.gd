@@ -8,5 +8,6 @@ func _ready() -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	SignalBus.gold_change.emit()
 	queue_free()
 	

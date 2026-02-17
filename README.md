@@ -8,3 +8,8 @@ Assets Credits :
 	Bird : https://ma9ici4n.itch.io/pixel-art-bird-16x16
 	Coin : https://totuslotus.itch.io/pixel-coins
 	Veg : https://emanuelledev.itch.io/farm-rpg
+	
+	
+Music by Eric Matyas
+
+www.soundimage.org

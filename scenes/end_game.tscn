@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://g8dd7a62jym4"]
+
+[ext_resource type="Script" uid="uid://c4h3q3oc14asj" path="res://scripts/end_game.gd" id="1_0py74"]
+[ext_resource type="Texture2D" uid="uid://bmvjxp65xtreo" path="res://assets/Menus/PauseMenu/Pause_menu_main_menu.png" id="2_5pifh"]
+[ext_resource type="Texture2D" uid="uid://brijdjndqom0j" path="res://assets/Menus/PauseMenu/Pause_menu_main_menu_highlight.png" id="3_0h6i1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2ayk"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 0.6431373)
+
+[node name="EndGame" type="Control" unique_id=2125481672]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0py74")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1747766391]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2ayk")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1138008746]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=654142357]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=900160285]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1125765991]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainMenu" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1324475599]
+layout_mode = 2
+texture_normal = ExtResource("2_5pifh")
+texture_hover = ExtResource("3_0h6i1")
+stretch_mode = 3
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/MainMenu" to="." method="_on_main_menu_pressed"]

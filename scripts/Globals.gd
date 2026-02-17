@@ -31,6 +31,7 @@ enum VEG_SAPLING_GROW_TIME_SECS {DEFAULT, CARROT = 2, POTATOE = 3, PUMPKIN = 4, 
 
 enum CURSOR_STATE { IDLE, HOLD , RELEASE }
 	
+	
 func clear_global_values() -> void :
 	currentSeedSelection = VEGETABLES.NONE
 	currentGold = 10;
@@ -39,3 +40,4 @@ func clear_global_values() -> void :
 	birdSpawnWaitTime = 0;
 	plantedGround = {};
 	SignalBus.change_cursor_to_idle.emit()
+	outOfBoundsGround = {};

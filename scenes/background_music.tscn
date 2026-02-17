@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c62ipkel52qe0"]
+
+[ext_resource type="AudioStream" uid="uid://cpvmyfkxr77uq" path="res://assets/Audio/Music/Lost-Meadow_Looping.mp3" id="1_0rulj"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=251774565]
+stream = ExtResource("1_0rulj")
+volume_db = -30.0
+autoplay = true

@@ -2,7 +2,7 @@ extends Node
 
 var currentSeedSelection : VEGETABLES;
 var currentGold : int = 10;
-var targetGold : int = 60;
+var targetGold : int = 51;
 var goldSpent : int = 0;
 
 #Bird Related Vars

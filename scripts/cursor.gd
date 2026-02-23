@@ -18,6 +18,7 @@ func cursor_sprite_hold(_input : Globals.VEGETABLES) -> void:
 	
 func cursor_sprite_idle() -> void:
 	change_cursor_sprite(Globals.CURSOR_STATE.IDLE)
+	Globals.currentSeedSelection = Globals.VEGETABLES.NONE
 
 	
 func change_cursor_sprite(cursor_state_change : Globals.CURSOR_STATE) -> void:

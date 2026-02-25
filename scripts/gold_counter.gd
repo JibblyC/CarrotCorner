@@ -8,14 +8,13 @@ var goldLabel;
 	
 
 func _ready():
-	# Save the initial position (so we can return to it)
 	original_position = position
 	goldLabel = $PanelContainer/VSplitContainer/MarginContainer2/total_value
 	goldLabel.text = str(Globals.currentGold);
 	SignalBus.gold_change.connect(change_gold_label)
 	
 func change_gold_label() -> void :
-	goldLabel.text = str(Globals.currentGold);
+	goldLabel.text = str(Globals.currentGold) + " / " + str(Globals.targetGold);
 	if Globals.currentGold >= Globals.targetGold and !Globals.endlessMode:
 		SignalBus.game_ended.emit();
 

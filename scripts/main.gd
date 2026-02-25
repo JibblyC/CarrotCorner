@@ -6,6 +6,7 @@ extends Node
 
 func _ready() -> void:
 	SignalBus.main_loaded.emit();
+	SignalBus.gold_change.emit()
 	for child in $OutOfBoundsLocations.get_children():
 		Globals.outOfBoundsGround[child.get_instance_id()] = child;
 		

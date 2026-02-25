@@ -10,6 +10,6 @@ Assets Credits :
 	Veg : https://emanuelledev.itch.io/farm-rpg
 	
 	
-Music by Eric Matyas
-
-www.soundimage.org
+Music :
+	
+https://pixabay.com - Feed The Machine - Classic Arcade Game

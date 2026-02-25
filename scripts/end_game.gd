@@ -4,8 +4,6 @@ extends Control
 @onready var birdsPunchedLabel = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BirdsPunchedLabel
 @onready var vegPickedLabel = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VegPickedLabel
 
-#TODO -- Add game end music / add fireworks vai particle effects
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	SignalBus.game_ended.connect(update_end_game_stats)
@@ -22,5 +20,5 @@ func update_end_game_stats() -> void:
 		birdsPunchedLabel.text = "Total Birds Punched : " + str(Globals.birdsPunched)
 		vegPickedLabel.text = "Total Vegetables Picked : " + str(Globals.numVegPicked)
 	
-	
-	
+func _on_fireworks_timer_timeout() -> void:
+	$Fireworks.stop_fire_works();

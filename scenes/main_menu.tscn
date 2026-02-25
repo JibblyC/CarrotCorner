@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cljpn8ht0g1hv" path="res://assets/Menus/MainMenu/StartButton_highlight.png" id="10_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://b5v4iijcn70ya" path="res://assets/Menus/singleCoin1_highlight.png" id="11_rcqid"]
 [ext_resource type="PackedScene" uid="uid://by1elj6ufj5uq" path="res://scenes/cursor.tscn" id="14_1ajci"]
+[ext_resource type="Texture2D" uid="uid://c6hd30j3n7jy6" path="res://assets/Menus/MainMenu/EndlessMode.png" id="14_7b55j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ajci"]
 texture = ExtResource("7_1ajci")
@@ -159,14 +160,36 @@ theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = -5
 theme_override_constants/margin_bottom = 9
 
-[node name="StartGame" type="TextureButton" parent="VSplitContainer/StartButtonContainer" unique_id=198625774]
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/StartButtonContainer" unique_id=928295951]
+layout_mode = 2
+size_flags_stretch_ratio = 2.39
+
+[node name="StartGame" type="TextureButton" parent="VSplitContainer/StartButtonContainer/HBoxContainer" unique_id=198625774]
 layout_mode = 2
 texture_normal = ExtResource("9_jk1qb")
 texture_hover = ExtResource("10_5dd4i")
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/StartButtonContainer/HBoxContainer" unique_id=1161578637]
+layout_mode = 2
+theme_override_constants/margin_left = 34
+theme_override_constants/margin_right = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/StartButtonContainer/HBoxContainer/MarginContainer" unique_id=950397407]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="VSplitContainer/StartButtonContainer/HBoxContainer/MarginContainer/HBoxContainer" unique_id=1864882853]
+layout_mode = 2
+texture = ExtResource("14_7b55j")
+
+[node name="EndLessCheckBox" type="CheckBox" parent="VSplitContainer/StartButtonContainer/HBoxContainer/MarginContainer/HBoxContainer" unique_id=390263565]
+layout_mode = 2
+theme_override_constants/h_separation = 5
 
 [node name="Cursor" parent="." unique_id=1445946177 instance=ExtResource("14_1ajci")]
 
 [connection signal="timeout" from="VSplitContainer/TitleContainer/TitleDropDownTimer" to="VSplitContainer/TitleContainer/MainCarrotCornerTexture" method="_on_timer_timeout"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer/VBoxContainer/BirdSlider" to="." method="_on_bird_slider_value_changed"]
 [connection signal="value_changed" from="VSplitContainer/SettingsContainer/HBoxContainer/MarginContainer2/VBoxContainer2/StartingGoldSlider" to="." method="_on_starting_gold_slider_value_changed"]
-[connection signal="pressed" from="VSplitContainer/StartButtonContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="VSplitContainer/StartButtonContainer/HBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="toggled" from="VSplitContainer/StartButtonContainer/HBoxContainer/MarginContainer/HBoxContainer/EndLessCheckBox" to="." method="_on_end_less_check_box_toggled"]

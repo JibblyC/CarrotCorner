@@ -4,6 +4,8 @@ var currentSeedSelection : VEGETABLES;
 var currentGold : int = 10;
 var targetGold : int = 51;
 var goldSpent : int = 0;
+var numVegPicked : int = 0;
+var endlessMode : bool = false;
 
 #Bird Related Vars
 var birdsPunched : int = 0;
@@ -41,3 +43,4 @@ func clear_global_values() -> void :
 	plantedGround = {};
 	SignalBus.change_cursor_to_idle.emit()
 	outOfBoundsGround = {};
+	numVegPicked = 0;

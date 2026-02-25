@@ -40,6 +40,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				Globals.currentGold += plantedVeg.goldValue;
 				planted = false;
 				plantedVeg.vegetable_harvest_popup()
+				Globals.numVegPicked += 1;
 				
 func set_bird_planted(value: bool) -> void:
 		isBirdOnPlant = value

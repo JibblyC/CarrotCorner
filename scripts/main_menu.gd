@@ -41,3 +41,7 @@ func _on_starting_gold_slider_value_changed(value: float) -> void:
 
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _on_end_less_check_box_toggled(toggled_on: bool) -> void:
+	Globals.endlessMode = toggled_on

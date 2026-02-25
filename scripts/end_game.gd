@@ -1,9 +1,14 @@
 extends Control
 
+@onready var goldSpentLabel = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GoldSpentLabel
+@onready var birdsPunchedLabel = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BirdsPunchedLabel
+@onready var vegPickedLabel = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VegPickedLabel
 
-# Called when the node enters the scene tree for the first time.
+#TODO -- Add game end music / add fireworks vai particle effects
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	SignalBus.game_ended.connect(update_end_game_stats)
 
 
 func _on_main_menu_pressed() -> void:
@@ -11,5 +16,11 @@ func _on_main_menu_pressed() -> void:
 	Globals.clear_global_values()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	self.visible = false;
+	
+func update_end_game_stats() -> void:
+		goldSpentLabel.text = "Total Gold Spent : " + str(Globals.goldSpent)
+		birdsPunchedLabel.text = "Total Birds Punched : " + str(Globals.birdsPunched)
+		vegPickedLabel.text = "Total Vegetables Picked : " + str(Globals.numVegPicked)
+	
 	
 	

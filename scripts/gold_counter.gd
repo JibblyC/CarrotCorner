@@ -16,7 +16,7 @@ func _ready():
 	
 func change_gold_label() -> void :
 	goldLabel.text = str(Globals.currentGold);
-	if Globals.currentGold >= Globals.targetGold :
+	if Globals.currentGold >= Globals.targetGold and !Globals.endlessMode:
 		SignalBus.game_ended.emit();
 
 func not_enough_gold_animation():

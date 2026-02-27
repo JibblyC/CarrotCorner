@@ -2053,5 +2053,6 @@ position = Vector2(416, 80)
 [node name="Cursor" parent="." unique_id=1763100487 instance=ExtResource("8_tipki")]
 
 [node name="AudioStreamPlayer2D" parent="." unique_id=251774565 instance=ExtResource("11_ya4ey")]
+volume_db = -20.0
 
 [connection signal="timeout" from="BirdSpawnTimer" to="." method="_on_bird_spawn_timer_timeout"]

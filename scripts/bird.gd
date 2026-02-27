@@ -72,6 +72,7 @@ func fly_away() -> void :
 	change_state(STATES.FLYING)
 	clickable = false
 	Globals.birdsPunched += 1;
+	$BirdSquakAudio.play()
 			
 		
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

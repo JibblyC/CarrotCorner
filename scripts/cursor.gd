@@ -44,6 +44,7 @@ func play_punch_animation(bird_location : Vector2) -> void :
 	$PunchAnimation.visible = true
 	$PunchAnimation.play()
 	$PunchAnimation.set_position(bird_location)
+	$AudioStreamPlayer2D.play()
 	
 func _on_punch_animation_animation_finished() -> void:
 	$PunchAnimation.visible = false;

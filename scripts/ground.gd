@@ -17,8 +17,6 @@ func _ready() -> void:
 	hilightBorder.material = shader_material
 	hilightBorder.z_index = z_index + 10
 	
-	#TODO -- CLICK and hold for plant / harvest - Much effort?
-	
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		if not planted and Globals.currentSeedSelection != Globals.VEGETABLES.NONE:
@@ -30,6 +28,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				Globals.plantedGround[plantedVeg.get_instance_id()] = self;
 				plantedVeg.vegetable_eaten.connect(reset_ground_status)
 				$PlantSeedParticles.emitting = true;
+				$PlantSeedAudio.play()
 				Globals.goldSpent += plantedVeg.goldCost;
 			else:
 				$"../../UI/GoldCounter".not_enough_gold_animation();

@@ -15,7 +15,6 @@ func _on_button_mouse_entered() -> void:
 	
 	var viewport_size = get_viewport_rect().size
 	var yValue = 0
-	
 	if global_position.y + 80 > viewport_size.y:
 		yValue = -60
 	
@@ -28,9 +27,16 @@ func _on_button_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
+	SignalBus.release_focus_button.emit()
 	SignalBus.seed_selected.emit(vegetable);
 	Globals.currentSeedSelection = vegetable;
+	$FocusCursor.visible = true;
+
+
 
 func _release_focus_on_button() -> void:
+	$FocusCursor.visible = false;
 	if($Button.has_focus()) :
 		$Button.release_focus()
+		
+		

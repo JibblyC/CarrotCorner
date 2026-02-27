@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://8dwcni852f4c" path="res://scripts/seed_selection_button.gd" id="1_tlvlu"]
 [ext_resource type="Texture2D" uid="uid://dmulqv72fdwht" path="res://assets/Menus/MainMenu/MenuBackground.png" id="2_tlvlu"]
 [ext_resource type="Texture2D" uid="uid://dpn0lgcb15hwl" path="res://assets/Menus/MainMenu/MenuBackgroundHighlight.png" id="3_x7ydd"]
+[ext_resource type="Texture2D" uid="uid://bdohifd1j0fhp" path="res://assets/Menus/focus_cursor.png" id="4_sq1ls"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgpu6"]
 texture = ExtResource("2_tlvlu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sq1ls"]
 texture = ExtResource("3_x7ydd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7ydd"]
 
 [node name="SeedSelectionButton" type="Control" unique_id=1736268809]
 layout_mode = 3
@@ -36,7 +39,18 @@ offset_right = 16.0
 offset_bottom = 14.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_rgpu6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_sq1ls")
+theme_override_styles/focus = SubResource("StyleBoxFlat_x7ydd")
 icon_alignment = 1
+
+[node name="FocusCursor" type="TextureRect" parent="." unique_id=1993064190]
+visible = false
+layout_mode = 0
+offset_left = -11.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = 12.0
+texture = ExtResource("4_sq1ls")
+expand_mode = 1
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

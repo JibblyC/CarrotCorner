@@ -12,13 +12,15 @@ func _ready() -> void:
 func _on_main_menu_pressed() -> void:
 	PauseManager.togglePauseMenu()
 	Globals.clear_global_values()
+	$EndGameMusic.playing = false;
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	self.visible = false;
 	
 func update_end_game_stats() -> void:
-		goldSpentLabel.text = "Total Gold Spent : " + str(Globals.goldSpent)
-		birdsPunchedLabel.text = "Total Birds Punched : " + str(Globals.birdsPunched)
-		vegPickedLabel.text = "Total Vegetables Picked : " + str(Globals.numVegPicked)
+		$EndGameMusic.playing = true;
+		goldSpentLabel.text = "Gold Spent : " + str(Globals.goldSpent)
+		birdsPunchedLabel.text = "Birds Punched : " + str(Globals.birdsPunched)
+		vegPickedLabel.text = "Vegetables Picked : " + str(Globals.numVegPicked)
 	
 func _on_fireworks_timer_timeout() -> void:
 	$Fireworks.stop_fire_works();

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1ve4e0esnf6r" path="res://scripts/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://ew5kudnvlbx0" path="res://assets/vegetables/plantGroundBorder.png" id="2_mi8v4"]
+[ext_resource type="AudioStream" uid="uid://bijo6uxidqiuv" path="res://assets/Audio/SFX/plant_seed_sfx.wav" id="3_lmksl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pybca"]
 size = Vector2(16, 16)
@@ -40,6 +41,9 @@ lifetime = 0.48
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_lmksl")
+
+[node name="PlantSeedAudio" type="AudioStreamPlayer2D" parent="." unique_id=294455033]
+stream = ExtResource("3_lmksl")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

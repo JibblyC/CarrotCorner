@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmkhsm5b48ug8"]
+[gd_scene format=3 uid="uid://cmkhsm5b48ug8"]
 
 [ext_resource type="Script" uid="uid://bp7ehospl4poi" path="res://scripts/bird.gd" id="1_crnqq"]
 [ext_resource type="Texture2D" uid="uid://3rhvchsx81py" path="res://assets/Pixel Art Bird 16x16/BlackBirdFly.png" id="2_3po83"]
 [ext_resource type="Texture2D" uid="uid://b14300prhuxj8" path="res://assets/Pixel Art Bird 16x16/BlackBirdPeck.png" id="3_hq4t0"]
 [ext_resource type="Texture2D" uid="uid://cj8pwokxbst2s" path="res://assets/Pixel Art Bird 16x16/BlackBirdIDle.png" id="3_twsrt"]
 [ext_resource type="Texture2D" uid="uid://c4pn0bqhf8kt3" path="res://assets/Pixel Art Bird 16x16/BirdPunchParticle.png" id="5_b7mtg"]
+[ext_resource type="AudioStream" uid="uid://c6cqvybpf4op5" path="res://assets/Audio/SFX/Bird_Squak.wav" id="6_bdh3x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq4t0"]
 atlas = ExtResource("2_3po83")
@@ -139,36 +140,36 @@ spread = 166.2
 initial_velocity_max = 42.21
 gravity = Vector3(0, 0, 0)
 
-[node name="Bird" type="Node2D"]
+[node name="Bird" type="Node2D" unique_id=945917497]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_crnqq")
 
-[node name="PeckAnimation" type="AnimatedSprite2D" parent="."]
+[node name="PeckAnimation" type="AnimatedSprite2D" parent="." unique_id=2077541909]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_6ljjq")
 animation = &"peck"
 
-[node name="ClickableTimer" type="Timer" parent="."]
+[node name="ClickableTimer" type="Timer" parent="." unique_id=598507089]
 wait_time = 0.7
 one_shot = true
 
-[node name="ShooTimer" type="Timer" parent="."]
+[node name="ShooTimer" type="Timer" parent="." unique_id=1068508606]
 wait_time = 0.25
 one_shot = true
 
-[node name="PeckTimer" type="Timer" parent="."]
+[node name="PeckTimer" type="Timer" parent="." unique_id=2068557025]
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=644705839]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=282155357]
 position = Vector2(-1.4305107e-06, -1.0658139e-13)
 scale = Vector2(0.9999995, 0.9999995)
 shape = SubResource("RectangleShape2D_twsrt")
 
-[node name="Despawner" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="Despawner" type="VisibleOnScreenNotifier2D" parent="." unique_id=564692937]
 
-[node name="PunchParticles" type="GPUParticles2D" parent="."]
+[node name="PunchParticles" type="GPUParticles2D" parent="." unique_id=272542872]
 emitting = false
 amount = 10
 texture = ExtResource("5_b7mtg")
@@ -176,6 +177,9 @@ lifetime = 0.58
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_twsrt")
+
+[node name="BirdSquakAudio" type="AudioStreamPlayer2D" parent="." unique_id=408171643]
+stream = ExtResource("6_bdh3x")
 
 [connection signal="animation_finished" from="PeckAnimation" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="PeckAnimation" to="." method="_on_peck_animation_animation_looped"]

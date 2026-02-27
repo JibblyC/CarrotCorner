@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://by1elj6ufj5uq"]
+[gd_scene format=3 uid="uid://by1elj6ufj5uq"]
 
 [ext_resource type="Script" uid="uid://bu3h0kwfa21kk" path="res://scripts/cursor.gd" id="1_1eco6"]
 [ext_resource type="Texture2D" uid="uid://borwh8uumqdl0" path="res://assets/Cursor/punching_SpriteSheet.png" id="2_s0nli"]
+[ext_resource type="AudioStream" uid="uid://d0r4p3yrcrobv" path="res://assets/Audio/SFX/freesound_community-punch-2-37333.wav" id="3_ndevg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ndevg"]
 atlas = ExtResource("2_s0nli")
@@ -32,14 +33,17 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Cursor" type="Node"]
+[node name="Cursor" type="Node" unique_id=1634184279]
 script = ExtResource("1_1eco6")
 
-[node name="PunchAnimation" type="AnimatedSprite2D" parent="."]
+[node name="PunchAnimation" type="AnimatedSprite2D" parent="." unique_id=885504964]
 visible = false
 visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_xjntw")
 animation = &"punch"
 frame_progress = 0.95962983
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=751866185]
+stream = ExtResource("3_ndevg")
 
 [connection signal="animation_finished" from="PunchAnimation" to="." method="_on_punch_animation_animation_finished"]

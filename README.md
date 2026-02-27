@@ -1,5 +1,5 @@
 # CarrotCorner
-First Godot Farming game for the purpose of learning
+First Godot Farming game for the purpose of learning....for Tadhg
 
 
 Assets Credits :
@@ -12,4 +12,8 @@ Assets Credits :
 	
 Music :
 	
-https://pixabay.com - Feed The Machine - Classic Arcade Game
+https://pixabay.com/users/dream-protocol-9556087
+
+SFX : 
+	
+https://pixabay.com/users/dragon-studio-38165424/

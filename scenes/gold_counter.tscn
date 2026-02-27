@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nmw20mbrh4q6" path="res://scripts/gold_counter.gd" id="1_4ch30"]
 [ext_resource type="Texture2D" uid="uid://cuoii5fmlbueu" path="res://assets/Menus/GoldGui.png" id="2_7eso2"]
-[ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
+[ext_resource type="AudioStream" uid="uid://b5bmbllqky57u" path="res://assets/Audio/SFX/Retro Event Wrong Simple 03.wav" id="3_7eso2"]
 [ext_resource type="FontFile" uid="uid://cpaa6s6xumhku" path="res://themes/quaver.ttf" id="3_jb4gt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eso2"]

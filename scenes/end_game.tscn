@@ -81,6 +81,12 @@ theme_override_fonts/font = ExtResource("3_6lcay")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RunTimeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=914380950]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_6lcay")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1125765991]
 layout_mode = 2
 size_flags_vertical = 3

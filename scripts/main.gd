@@ -14,6 +14,9 @@ func _ready() -> void:
 		birdSpawnTimer.start()
 		birdSpawnTimer.wait_time = Globals.birdSpawnWaitTime;
 		
+func _process(delta):
+	Globals.totalTime += delta
+		
 func _unhandled_input(event) :
 	if event.is_action_pressed("cancel_seed_selection"):
 		Globals.currentSeedSelection = Globals.VEGETABLES.NONE

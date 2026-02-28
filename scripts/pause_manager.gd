@@ -3,8 +3,6 @@ extends Node
 @onready var pause_menu;
 @onready var end_menu;
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -13,7 +11,7 @@ func _ready() -> void:
 	
 	
 func _unhandled_input(event) :
-	if event.is_action_pressed("pause_menu_open_close"):
+	if event.is_action_pressed("pause_menu_open_close") && !end_menu.visible:
 		togglePauseMenu();
 
 func togglePauseMenu() -> void :

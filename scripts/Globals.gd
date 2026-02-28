@@ -2,7 +2,7 @@ extends Node
 
 var currentSeedSelection : VEGETABLES;
 var currentGold : int = 10;
-var targetGold : int = 51;
+var targetGold : int = 100;
 var goldSpent : int = 0;
 var numVegPicked : int = 0;
 var endlessMode : bool = false;
@@ -10,6 +10,9 @@ var endlessMode : bool = false;
 #Bird Related Vars
 var birdsPunched : int = 0;
 var birdSpawnWaitTime : float = 0;
+
+#Run Time Vars
+var totalTime : float = 0.0;
 
 enum VEGETABLES {NONE,CARROT,POTATOE,PUMPKIN,TOMATOE,BROCCOLI};
 
@@ -44,3 +47,4 @@ func clear_global_values() -> void :
 	SignalBus.change_cursor_to_idle.emit()
 	outOfBoundsGround = {};
 	numVegPicked = 0;
+	totalTime = 0.0;

@@ -14,6 +14,8 @@ func _ready() -> void:
 		birdSpawnTimer.start()
 		birdSpawnTimer.wait_time = Globals.birdSpawnWaitTime;
 		
+	warmup_shaders();
+		
 func _process(delta):
 	Globals.totalTime += delta
 		
@@ -35,8 +37,12 @@ func _on_bird_spawn_timer_timeout() -> void:
 		spawned_bird.targetGround = Globals.plantedGround[random_key]
 		Globals.plantedGround.erase(random_key)
 		add_child(spawned_bird)
-		
-		
 
+func warmup_shaders():
+	# Show each briefly to compile shader
+	var birdToWarmUp = bird_scene.instantiate();
+	birdToWarmUp.warm_up_particles(true)
 	
-	
+	# Wait a frame for compilation
+	await get_tree().process_frame
+	birdToWarmUp.warm_up_particles(false)

@@ -98,3 +98,8 @@ func _on_peck_animation_animation_looped() -> void:
 				$PeckTimer.start()	
 		else:
 			fly_away()
+			
+
+func warm_up_particles(emitBool: bool) -> void:
+	$PunchParticles.visible = emitBool;
+	$PunchParticles.emitting = emitBool;

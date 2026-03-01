@@ -18,6 +18,8 @@ func _on_main_menu_pressed() -> void:
 	
 func update_end_game_stats() -> void:
 		$EndGameMusic.playing = true;
+		if !Globals.isWebBuild :
+			$Fireworks.start_fire_works();
 		goldSpentLabel.text = "Gold Spent : %s" % Globals.goldSpent;
 		birdsPunchedLabel.text = "Birds Punched : %s" % Globals.birdsPunched;
 		vegPickedLabel.text = "Vegetables Picked : %s" % Globals.numVegPicked;

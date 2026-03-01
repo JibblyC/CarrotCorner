@@ -2,7 +2,7 @@ extends Node
 
 var currentSeedSelection : VEGETABLES;
 var currentGold : int = 10;
-var targetGold : int = 100;
+var targetGold : int = 500;
 var goldSpent : int = 0;
 var numVegPicked : int = 0;
 var endlessMode : bool = false;
@@ -13,6 +13,9 @@ var birdSpawnWaitTime : float = 0;
 
 #Run Time Vars
 var totalTime : float = 0.0;
+
+#Build Vars -- TODO must be a way to do this with export templates
+var isWebBuild : bool = true;
 
 enum VEGETABLES {NONE,CARROT,POTATOE,PUMPKIN,TOMATOE,BROCCOLI};
 

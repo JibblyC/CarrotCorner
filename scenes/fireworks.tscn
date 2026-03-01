@@ -79,6 +79,7 @@ script = ExtResource("1_q76is")
 
 [node name="Trail" type="GPUParticles2D" parent="." unique_id=411648645]
 material = SubResource("CanvasItemMaterial_7gfgj")
+emitting = false
 amount = 5
 sub_emitter = NodePath("../Explosion")
 texture = SubResource("GradientTexture2D_cvf0l")
@@ -87,6 +88,7 @@ process_material = SubResource("ParticleProcessMaterial_l1a15")
 
 [node name="Explosion" type="GPUParticles2D" parent="." unique_id=1176071106]
 material = SubResource("CanvasItemMaterial_pfsm8")
+emitting = false
 amount = 1000
 texture = SubResource("GradientTexture2D_8rjln")
 trail_enabled = true

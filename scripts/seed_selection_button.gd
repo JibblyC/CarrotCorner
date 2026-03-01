@@ -7,6 +7,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.release_focus_button.connect(_release_focus_on_button)
+	SignalBus.change_cursor_to_idle.connect(_release_focus_on_button)
 	$ToolTipImage.texture = toolTipTexture
 	$Button.icon = iconImage
 

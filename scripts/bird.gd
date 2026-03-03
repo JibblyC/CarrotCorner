@@ -57,7 +57,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		health -= 1;
 		$PunchParticles.restart()
 		if(health <= 0):
-			if(targetGround.plantedVeg.is_plant_healthy()):
+			if(targetGround.plantedVeg and targetGround.plantedVeg.is_plant_healthy()):
 				Globals.plantedGround[plantedGround.plantedVeg.get_instance_id()] = plantedGround;
 			fly_away()
 	
@@ -100,6 +100,6 @@ func _on_peck_animation_animation_looped() -> void:
 			fly_away()
 			
 
-func warm_up_particles(emitBool: bool) -> void:
-	$PunchParticles.visible = emitBool;
-	$PunchParticles.emitting = emitBool;
+func flipParticles() -> void:
+	$PunchParticles.visible = !$PunchParticles.visible;
+	$PunchParticles.emitting = !$PunchParticles.emitting;

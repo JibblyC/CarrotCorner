@@ -59,3 +59,6 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_plant_seed_particles_finished() -> void:
 	add_child(plantedVeg)
+	
+func flipParticles() -> void :
+	$PlantSeedParticles.emitting = !$PlantSeedParticles.emitting;

@@ -39,10 +39,16 @@ func _on_bird_spawn_timer_timeout() -> void:
 		add_child(spawned_bird)
 
 func warmup_shaders():
-	# Show each briefly to compile shader
+	var groundPackedScene = preload("res://scenes/ground.tscn")
+	var groundInst = groundPackedScene.instantiate()
+	add_child(groundInst)
+	groundInst.flipParticles()
+
 	var birdToWarmUp = bird_scene.instantiate();
-	birdToWarmUp.warm_up_particles(true)
+	birdToWarmUp.targetGround = $OutOfBoundsLocations/OutOfBoundsGround
+	add_child(birdToWarmUp)
+	birdToWarmUp.flipParticles()
 	
-	# Wait a frame for compilation
 	await get_tree().process_frame
-	birdToWarmUp.warm_up_particles(false)
+	birdToWarmUp.queue_free()
+	groundInst.queue_free()

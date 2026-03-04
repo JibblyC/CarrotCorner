@@ -100,6 +100,6 @@ func _on_peck_animation_animation_looped() -> void:
 			fly_away()
 			
 
-func flipParticles() -> void:
-	$PunchParticles.visible = !$PunchParticles.visible;
-	$PunchParticles.emitting = !$PunchParticles.emitting;
+func warmUpParticles(value : bool) -> void:
+	$PunchParticles.visible = value;
+	$PunchParticles.emitting = value;

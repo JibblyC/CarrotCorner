@@ -47,8 +47,9 @@ func warmup_shaders():
 	var birdToWarmUp = bird_scene.instantiate();
 	birdToWarmUp.targetGround = $OutOfBoundsLocations/OutOfBoundsGround
 	add_child(birdToWarmUp)
-	birdToWarmUp.flipParticles()
+	birdToWarmUp.warmUpParticles(true)
 	
 	await get_tree().process_frame
+	
 	birdToWarmUp.queue_free()
 	groundInst.queue_free()

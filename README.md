@@ -1,14 +1,19 @@
-# CarrotCorner
-First Godot Farming game for the purpose of learning....for Tadhg
+# ![TitleBanner](screenshots/TitleScreen_CC.jpg)
 
-![Screenshot](assets/Menus/CarritCorner_Dropdown.png)
+First Godot Farming game for the purpose of learning....for Tadhg!!
 
-Published here :
-	
+## Screenshots
+
+# ![MainMenu](screenshots/TitleScreen.jpg)
+
+# ![MainMenu](screenshots/ActionShot.jpg)
+
+
+## Play on Itch :
 https://yummyjibblybits.itch.io/carrotcorner
 
 
-Assets Credits :
+### Assets Credits :
 	
 	Kennys : https://kenney.nl/assets/roguelike-rpg-pack
 	Bird : https://ma9ici4n.itch.io/pixel-art-bird-16x16
@@ -24,14 +29,12 @@ SFX :
 	
 https://pixabay.com/users/dragon-studio-38165424/
 
-TODOs
-Adjust resolution for mobile
-
-Extra Features that I might add :
+### TODOs and Extra Features
+- Adjust resolution for mobile
 	
-Adjust end limit goal
-Gold can be spent on scarecrow - Auto punch birds
-Add new game mode
-	Target planted areas spell out a letter. If you can plant and maintain these areas, extra gold
-	Birds will prioritize them
-	Bonus point for guessing the letter maybe?
+- Adjust end limit goal
+- Gold can be spent on scarecrow - Auto punch birds
+- Add new game mode
+	- Target planted areas spell out a letter. If you can plant and maintain these areas, extra gold
+	- Birds will prioritize them
+	- Bonus point for guessing the letter maybe?

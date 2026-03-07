@@ -1,7 +1,7 @@
 # CarrotCorner
 First Godot Farming game for the purpose of learning....for Tadhg
 
-![Screenshot](res://assets/Menus/CarritCorner_Dropdown.png)
+![Screenshot](assets/Menus/CarritCorner_Dropdown.png)
 
 Published here :
 	
